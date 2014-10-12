@@ -1,29 +1,39 @@
 <section data-ng-controller="ArticlesController" data-ng-init="find()">
 	<div class="page-header">
-		<h1>Articles</h1>
+		<h1>Bookmarks</h1>
 	</div>
-	<a ui-sref="providers">Link to providers</a>
-	<br>
-	<a ui-sref="createArticle">Add bookmark!</a>
-	<div class="list-group">
-		<div data-ng-repeat="article in articles" data-ng-href="#!/articles/{{article._id}}" class="list-group-item">
-			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="article.created | date:'mediumDate'"></span>
-				by
-				<span data-ng-bind="article.user.displayName"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="article.title"></h4>
-			<p class="list-group-item-text" data-ng-bind="article.content"></p>
-			<button type="button" class="btn btn-default btn-lg" data-ng-click="update()">
-  			<span class="glyphicon glyphicon-pencil"></span> Edit
-			</button>
-			<a type="button" class="btn btn-default btn-lg" data-ng-click="remove(article)">
-  			<i class="glyphicon glyphicon-trash"></i> Delete
-			</a>
+	<div class="col-md-3">
+		<a ui-sref="createArticle">
+			<i class="glyphicon glyphicon-plus"></i>
+			<span class="bookmark-link">Add Bookmark</span>
+		</a>
+		<br>
+		<a ui-sref="providers">
+			<i class="glyphicon glyphicon-arrow-right"></i>
+			<span class="bookmark-link">Connect with Provider</span>
+		</a>
+		<h2>Labels</h2>
+	</div>
+	<div class="col-md-9">
+		<p>SEARCH FEATURE</p>
+		<div class="list-group">
+			<div data-ng-repeat="article in articles" data-ng-href="#!/articles/{{article._id}}" class="list-group-item">
+				<div class="bookmark-details">
+					<h4 class="list-group-item-heading" data-ng-bind="article.title"></h4>
+					<p class="list-group-item-text" data-ng-bind="article.content"></p>
+				</div>
+				<div class="edit-remove-buttons">
+					<a type="button" class="btn btn-default btn-sm" data-ng-click="update()">
+  					<i class="glyphicon glyphicon-pencil"></i>
+					</a>
+					<a type="button" class="btn btn-default btn-sm" data-ng-click="remove(article)">
+  					<i class="glyphicon glyphicon-trash"></i>
+					</a>
+				</div>
+			</div>
 		</div>
-	</div>
-	<div class="alert alert-warning text-center" data-ng-if="articles.$resolved && !articles.length">
-		No articles yet, why don't you <a href="/#!/articles/create">create one</a>?
+		<div class="alert alert-warning text-center" data-ng-if="articles.$resolved && !articles.length">
+			No articles yet, why don't you <a href="/#!/articles/create">create one</a>?
+		</div>
 	</div>
 </section>

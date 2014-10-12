@@ -1,3 +1,39 @@
+body {
+  font-family: 'Hind', sans-serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-family: 'Permanent Marker', cursive;
+}
+
+header {
+  color: #faf283;
+  background-color: #73797e;
+  background-image: none;
+}
+
+header .navbar-brand {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 40px;
+  color: #faf283;
+}
+
+header a.dropdown-toggle {
+  color: #faf283;
+  background-color: #73797e;
+}
+
+header a.dropdown-toggle:hover {
+  background-color: #73797e;
+}
+
+header .nav .open > a,
+header .nav .open > a:hover,
+header .nav .open > a:focus {
+  background-color: #73797e;
+}
+
 .content {
   margin-top: 50px;
 }

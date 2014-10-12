@@ -1,4 +1,61 @@
-h1 {
-  font-size: 80px;
-  color: red;
+a:hover {
+  color: #b4a4cb;
+  text-decoration: none;
+}
+
+.bookmark-link {
+  margin-left: 5px;
+  font-size: 20px;
+  color: #67bdee;
+  vertical-align: top;
+}
+
+.glyphicon-plus {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #67bdee;
+}
+
+.glyphicon-arrow-right {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #67bdee;
+}
+
+h2 {
+  font-family: 'Permanent Marker', cursive;
+  color: #67bdee;
+}
+
+.page-header {
+  border-bottom: none;
+}
+
+.list-group-item {
+  height: 100px;
+  border: 1px solid #faf283;
+}
+
+.list-group-item-heading {
+  font-size: 24px;
+}
+
+.list-group-item-text {
+  font-size: 18px;
+  color: #73797e;
+}
+
+a.btn.btn-default.btn-sm {
+  background-color: #faf283;
+  background-image: none;
+}
+
+.bookmark-details {
+  display: inline-block;
+  float: left;
+}
+
+.edit-remove-buttons {
+  display: inline-block;
+  float: right;
 }

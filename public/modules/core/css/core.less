@@ -1,3 +1,46 @@
+@blue: #67BDEE;
+@darkgray: #73797E;
+@gray: #A3ACB3;
+@pink: #F2A8B7;
+@purple: #B4A4CB;
+@yellow: #FAF283;
+
+body {
+  font-family: 'Hind', sans-serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-family: 'Permanent Marker', cursive;
+}
+
+header {
+  background-color: @darkgray;
+  background-image: none;
+  color: @yellow;
+
+  .navbar-brand {
+    font-family: 'Permanent Marker', cursive;
+    color: @yellow;
+    font-size: 40px;
+  }
+
+  a.dropdown-toggle {
+    background-color: @darkgray;
+    color: @yellow;
+    &:hover {
+      background-color: @darkgray;
+    }
+  }
+
+  .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: @darkgray;
+  }
+
+}
+
+
+
 .content {
   margin-top: 50px;
 }
