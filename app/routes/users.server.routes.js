@@ -25,6 +25,10 @@ module.exports = function(app) {
 	app.route('/auth/signin').post(users.signin);
 	app.route('/auth/signout').get(users.signout);
 
+	// Seeting the spotify oauth routes
+	app.route('/auth/spotify').get(passport.authenticate('spotify'));
+	app.route('/auth/spotify/callback').get(users.oauthCallback('spotify'));
+
 	// Setting the facebook oauth routes
 	app.route('/auth/facebook').get(passport.authenticate('facebook', {
 		scope: ['email']
