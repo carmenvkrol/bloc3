@@ -14,6 +14,38 @@ module.exports = function(grunt) {
 	// Project Configuration
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+		
+		less: {
+      development: {
+        options: {
+          compress: true,
+          yuicompress: true,
+          optimization: 2
+        },
+        files: {
+          //target.css file: source.less file
+          'public/modules/articles/css/articles.css' : 'public/modules/articles/css/articles.less',
+          'public/modules/core/css/core.css' : 'public/modules/core/css/core.less',
+          'public/modules/users/css/users.css' : 'public/modules/users/css/users.less'
+        }
+      }
+    },
+
+    recess: {
+      options: {
+            compile: true
+        },
+        dist: {
+           files: [{
+                expand: true,
+                //cwd: 'app/styles',
+                src: 'public/modules/**/*.less',
+                dest: '',
+                ext: '.css'
+           }]
+        }
+    },
+
 		watch: {
 			serverViews: {
 				files: watchFiles.serverViews,
@@ -41,13 +73,23 @@ module.exports = function(grunt) {
 					livereload: true
 				}
 			},
-			clientCSS: {
+			styles: {
+        files: ['app/styles/{,*/}*.css'],
+        tasks: ['newer:less', 'autoprefixer']
+      },
+      recess: {
+        files: ['public/modules/articles/css/articles.less',
+        				'public/modules/core/css/core.less',
+        				'public/modules/users/css/users.less'],
+        tasks: ['recess:dist']
+      }
+			/*clientCSS: {
 				files: watchFiles.clientCSS,
 				tasks: ['csslint'],
 				options: {
 					livereload: true
 				}
-			}
+			}*/
 		},
 		jshint: {
 			all: {
@@ -57,14 +99,14 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		csslint: {
+		/*csslint: {
 			options: {
 				csslintrc: '.csslintrc',
 			},
 			all: {
 				src: watchFiles.clientCSS
 			}
-		},
+		},*/
 		uglify: {
 			production: {
 				options: {
@@ -75,13 +117,13 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		cssmin: {
+		/*cssmin: {
 			combine: {
 				files: {
 					'public/dist/application.min.css': '<%= applicationCSSFiles %>'
 				}
 			}
-		},
+		},*/
 		nodemon: {
 			dev: {
 				script: 'server.js',
@@ -150,21 +192,21 @@ module.exports = function(grunt) {
 		var config = require('./config/config');
 
 		grunt.config.set('applicationJavaScriptFiles', config.assets.js);
-		grunt.config.set('applicationCSSFiles', config.assets.css);
+		//grunt.config.set('applicationCSSFiles', config.assets.css);
 	});
 
 	// Default task(s).
-	grunt.registerTask('default', ['lint', 'concurrent:default']);
+	grunt.registerTask('default', [/*'lint',*/ 'concurrent:default']);
 
 	// Debug task.
-	grunt.registerTask('debug', ['lint', 'concurrent:debug']);
+	grunt.registerTask('debug', [/*'lint',*/ 'concurrent:debug']);
 
 	// Lint task(s).
-	grunt.registerTask('lint', ['jshint', 'csslint']);
+	//grunt.registerTask('lint', ['jshint', 'csslint']);
 
 	// Build task(s).
-	grunt.registerTask('build', ['lint', 'loadConfig', 'ngmin', 'uglify', 'cssmin']);
+	grunt.registerTask('build', ['less', 'loadConfig', 'ngmin', 'uglify', 'cssmin']);
 
 	// Test task.
-	grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit']);
+	grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit', 'less']);
 };
