@@ -14,20 +14,23 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 
 				$scope.title = '';
 				$scope.content = '';
+				$scope.find();
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
 		};
 
-		$scope.remove = function(article) {
-			if (article) {
-				article.$remove();
+		$scope.remove = function( article ) {
+			if ( article ) { article.$remove();
 
 				for (var i in $scope.articles) {
 					if ($scope.articles[i] === article) {
 						$scope.articles.splice(i, 1);
 					}
 				}
+
+				$scope.find();
+
 			} else {
 				$scope.article.$remove(function() {
 					$location.path('articles');

@@ -6,7 +6,7 @@
 	<br>
 	<a ui-sref="createArticle">Add bookmark!</a>
 	<div class="list-group">
-		<a data-ng-repeat="article in articles" data-ng-href="#!/articles/{{article._id}}" class="list-group-item">
+		<div data-ng-repeat="article in articles" data-ng-href="#!/articles/{{article._id}}" class="list-group-item">
 			<small class="list-group-item-text">
 				Posted on
 				<span data-ng-bind="article.created | date:'mediumDate'"></span>
@@ -15,7 +15,13 @@
 			</small>
 			<h4 class="list-group-item-heading" data-ng-bind="article.title"></h4>
 			<p class="list-group-item-text" data-ng-bind="article.content"></p>
-		</a>
+			<button type="button" class="btn btn-default btn-lg" data-ng-click="update()">
+  			<span class="glyphicon glyphicon-pencil"></span> Edit
+			</button>
+			<a type="button" class="btn btn-default btn-lg" data-ng-click="remove(article)">
+  			<i class="glyphicon glyphicon-trash"></i> Delete
+			</a>
+		</div>
 	</div>
 	<div class="alert alert-warning text-center" data-ng-if="articles.$resolved && !articles.length">
 		No articles yet, why don't you <a href="/#!/articles/create">create one</a>?
