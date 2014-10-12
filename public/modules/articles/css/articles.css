@@ -59,3 +59,18 @@ a.btn.btn-default.btn-sm {
   display: inline-block;
   float: right;
 }
+
+input.form-control {
+  height: 48px;
+  padding-top: 12px;
+  font-size: 20px;
+}
+
+input.btn.btn-default.btn-new-task {
+  font-family: 'Hind', sans-serif;
+  font-size: 18px;
+  text-shadow: none;
+  background-color: #faf283;
+  background-image: none;
+  border: none;
+}
