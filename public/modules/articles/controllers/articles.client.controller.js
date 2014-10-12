@@ -10,7 +10,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 				content: this.content
 			});
 			article.$save(function(response) {
-				$location.path('articles/' + response._id);
+				$location.path('articles');
 
 				$scope.title = '';
 				$scope.content = '';

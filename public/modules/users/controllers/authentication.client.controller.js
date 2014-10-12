@@ -13,7 +13,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				$scope.authentication.user = response;
 
 				// And redirect to the providers page
-				$location.path('/providers');
+				$location.path('/articles');
 			}).error(function(response) {
 				$scope.error = response.message;
 			});
@@ -25,7 +25,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				$scope.authentication.user = response;
 
 				// And redirect to the providers page
-				$location.path('/providers');
+				$location.path('/articles');
 			}).error(function(response) {
 				$scope.error = response.message;
 			});
