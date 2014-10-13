@@ -14,6 +14,14 @@ h1 {
   font-family: 'Permanent Marker', cursive;
 }
 
+h3 {
+  margin-top: 150px;
+  text-align: center;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 80px;
+  color: black;
+}
+
 header {
   background-color: @darkgray;
   background-image: none;
@@ -25,6 +33,16 @@ header {
     font-size: 40px;
   }
 
+  a {
+    color: @yellow;
+    background-color: @darkgray;
+    &:hover {
+      background-color: @darkgray;
+      background-image: none;
+      color: @blue;
+    };
+  }
+
   a.dropdown-toggle {
     background-color: @darkgray;
     color: @yellow;
@@ -33,13 +51,70 @@ header {
     }
   }
 
+  .nav > li > a:hover, .nav > li > a:focus {
+    background-color: @darkgray;
+  }
+
   .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
     background-color: @darkgray;
   }
 
 }
 
+.mainimage1{
+  z-index: 1;
+  background-image: url('../img/mainimage.jpg');
+  background-repeat: no-repeat;
+  border-radius: none;
+  height: 1000px;
+  width: 100%;
+}
 
+.mainimage2 {
+  position: absolute;
+  top: 50px;
+  z-index: 2;
+  opacity: 0.8;
+  background-color: white;
+  height: 1000px;
+  width: 100%;
+  p {
+    margin-top: 30px;
+    font-family: 'Permanent Marker', cursive;
+    text-align: center;
+    font-size: 24px;
+  }
+}
+
+.mainimage2 .button-container {
+  margin-top: 30px;
+}
+
+.mainimage2 .button-container a {
+  display: inherit;
+}
+
+.mainimage2 .button-container a:hover {
+  text-decoration: none;
+}
+
+.mainimage2 button {
+  display: inherit;
+  margin-right: auto;
+  margin-left: auto;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 20px;
+  color: white;
+  text-shadow: none;
+  background-color: black;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  &:hover {
+    background-color: @blue;
+  }
+
+}
 
 .content {
   margin-top: 50px;
