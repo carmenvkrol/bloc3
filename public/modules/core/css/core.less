@@ -46,16 +46,16 @@ header {
     };
   }
 
+  .nav > li > a:hover, .nav > li > a:focus {
+    background-color: @darkgray;
+  }
+
   a.dropdown-toggle {
     background-color: @darkgray;
     color: @yellow;
     &:hover {
       background-color: @darkgray;
     }
-  }
-
-  .nav > li > a:hover, .nav > li > a:focus {
-    background-color: @darkgray;
   }
 
   .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
@@ -87,37 +87,35 @@ header {
     text-align: center;
     font-size: 24px;
   }
-}
-
-.mainimage2 .button-container {
-  margin-top: 30px;
-}
-
-.mainimage2 .button-container a {
-  display: inherit;
-}
-
-.mainimage2 .button-container a:hover {
-  text-decoration: none;
-}
-
-.mainimage2 button {
-  display: inherit;
-  margin-right: auto;
-  margin-left: auto;
-  font-family: 'Permanent Marker', cursive;
-  font-size: 20px;
-  color: white;
-  text-shadow: none;
-  background-color: black;
-  background-image: none;
-  border: none;
-  box-shadow: none;
-  &:hover {
-    background-color: @blue;
+  .button-container {
+    margin-top: 30px;
+    a {
+      display: inherit;
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 
+  button {
+    display: inherit;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 20px;
+    color: white;
+    text-shadow: none;
+    background-color: black;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+    &:hover {
+      background-color: @blue;
+    }
+  }
 }
+
+/*CSS from Yeoman Scaffolding*/
 
 .content {
   margin-top: 50px;

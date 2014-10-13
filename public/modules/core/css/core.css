@@ -41,17 +41,17 @@ header a:hover {
   background-image: none;
 }
 
+header .nav > li > a:hover,
+header .nav > li > a:focus {
+  background-color: #73797e;
+}
+
 header a.dropdown-toggle {
   color: #faf283;
   background-color: #73797e;
 }
 
 header a.dropdown-toggle:hover {
-  background-color: #73797e;
-}
-
-header .nav > li > a:hover,
-header .nav > li > a:focus {
   background-color: #73797e;
 }
 
@@ -116,6 +116,8 @@ header .nav .open > a:focus {
 .mainimage2 button:hover {
   background-color: #67bdee;
 }
+
+/*CSS from Yeoman Scaffolding*/
 
 .content {
   margin-top: 50px;
