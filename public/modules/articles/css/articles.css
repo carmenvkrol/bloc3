@@ -1,6 +1,31 @@
+/* LIST PAGE */
+
 a:hover {
-  color: #b4a4cb;
   text-decoration: none;
+}
+
+.page-header {
+  border-bottom: none;
+}
+
+.glyphicon-plus {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #67bdee;
+}
+
+.glyphicon-plus:hover {
+  color: #b4a4cb;
+}
+
+.glyphicon-arrow-right {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #67bdee;
+}
+
+.glyphicon-arrow-right:hover {
+  color: #b4a4cb;
 }
 
 .bookmark-link {
@@ -10,16 +35,8 @@ a:hover {
   vertical-align: top;
 }
 
-.glyphicon-plus {
-  margin-bottom: 20px;
-  font-size: 20px;
-  color: #67bdee;
-}
-
-.glyphicon-arrow-right {
-  margin-bottom: 20px;
-  font-size: 20px;
-  color: #67bdee;
+.bookmark-link:hover {
+  color: #b4a4cb;
 }
 
 h2 {
@@ -27,50 +44,69 @@ h2 {
   color: #67bdee;
 }
 
-.page-header {
-  border-bottom: none;
-}
-
 .list-group-item {
   height: 100px;
   border: 1px solid #faf283;
 }
 
-.list-group-item-heading {
-  font-size: 24px;
-}
-
-.list-group-item-text {
-  font-size: 18px;
-  color: #73797e;
-}
-
-a.btn.btn-default.btn-sm {
-  background-color: #faf283;
-  background-image: none;
-}
-
-.bookmark-details {
+.list-group-item .bookmark-details {
   display: inline-block;
   float: left;
 }
 
-.edit-remove-buttons {
+.list-group-item .list-group-item-heading {
+  font-size: 24px;
+}
+
+.list-group-item .list-group-item-text {
+  font-size: 18px;
+  color: #73797e;
+}
+
+.list-group-item .edit-remove-buttons {
   display: inline-block;
   float: right;
 }
 
-input.form-control {
+.list-group-item .edit-remove-buttons a.btn.btn-default.btn-sm {
+  background-color: #faf283;
+  background-image: none;
+}
+
+.list-group-item .edit-remove-buttons a.btn.btn-default.btn-sm:hover {
+  background-color: #67bdee;
+}
+
+/* CREATE ARTICLE PAGE */
+
+form {
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+form input.form-control {
   height: 48px;
   padding-top: 12px;
+  margin-right: auto;
+  margin-left: auto;
   font-size: 20px;
 }
 
-input.btn.btn-default.btn-new-task {
+form input.btn.btn-default.btn-new-task {
   font-family: 'Hind', sans-serif;
   font-size: 18px;
   text-shadow: none;
   background-color: #faf283;
   background-image: none;
   border: none;
+}
+
+form input.btn.btn-default.btn-new-task:hover {
+  background-color: #67bdee;
+}
+
+form .form-group {
+  margin-right: auto;
+  margin-left: auto;
 }

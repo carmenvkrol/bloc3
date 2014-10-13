@@ -5,10 +5,35 @@
 @purple: #B4A4CB;
 @yellow: #FAF283;
 
+/* LIST PAGE */
+
 a {
   &:hover {
-    color: @purple;
     text-decoration: none;
+  }
+}
+
+.page-header {
+  border-bottom: none;
+}
+
+.glyphicon-plus {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: @blue;
+
+  &:hover {
+    color: @purple;
+  }
+}
+
+.glyphicon-arrow-right {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: @blue;
+
+   &:hover {
+    color: @purple;
   }
 }
 
@@ -17,18 +42,10 @@ a {
   margin-left: 5px;
   font-size: 20px;
   color: @blue;
-}
 
-.glyphicon-plus {
-  margin-bottom: 20px;
-  font-size: 20px;
-  color: @blue;
-}
-
-.glyphicon-arrow-right {
-  margin-bottom: 20px;
-  font-size: 20px;
-  color: @blue;
+  &:hover {
+    color: @purple;
+  }
 }
 
 h2 {
@@ -36,50 +53,73 @@ h2 {
   color: @blue;
 }
 
-.page-header {
-  border-bottom: none;
-}
-
 .list-group-item {
   border: 1px solid @yellow;
   height: 100px;
+
+  .bookmark-details {
+    float: left;
+    display: inline-block;
+  }
+
+  .list-group-item-heading {
+    font-size: 24px;
+  }
+
+  .list-group-item-text {
+    font-size: 18px;
+    color: @darkgray;
+  }
+
+  .edit-remove-buttons {
+    float: right;
+    display: inline-block;
+  
+    a.btn.btn-default.btn-sm {
+      background-color: @yellow;
+      background-image: none;
+      &:hover {
+        background-color: @blue;
+      }
+    }
+  }
 }
 
-.list-group-item-heading {
-  font-size: 24px;
+
+/* CREATE ARTICLE PAGE */
+
+form {
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+
+  input.form-control {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 12px;
+    font-size: 20px;
+    height: 48px;
+  }
+
+  input.btn.btn-default.btn-new-task {
+    background-image: none;
+    background-color: @yellow;
+    border: none;
+    text-shadow: none;
+    font-family: 'Hind', sans-serif;
+    font-size: 18px;
+    &:hover {
+      background-color: @blue;
+    }
+  }
+
+  .form-group {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
-.list-group-item-text {
-  font-size: 18px;
-  color: @darkgray;
-}
 
-a.btn.btn-default.btn-sm {
-  background-color: @yellow;
-  background-image: none;
-}
 
-.bookmark-details {
-  float: left;
-  display: inline-block;
-}
 
-.edit-remove-buttons {
-  float: right;
-  display: inline-block;
-}
 
-input.form-control {
-  padding-top: 12px;
-  font-size: 20px;
-  height: 48px;
-}
-
-input.btn.btn-default.btn-new-task {
-  background-image: none;
-  background-color: @yellow;
-  border: none;
-  text-shadow: none;
-  font-family: 'Hind', sans-serif;
-  font-size: 18px;
-}

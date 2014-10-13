@@ -31,6 +31,8 @@ h5 {
   text-align: center;
 }
 
+/*CSS FROM YEOMAN SCAFFOLDING*/
+
 @media (min-width: 992px) {
   .nav-users {
     position: fixed;
