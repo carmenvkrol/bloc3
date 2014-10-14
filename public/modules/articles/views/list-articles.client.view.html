@@ -21,6 +21,7 @@
 				<div class="bookmark-details">
 					<h4 class="list-group-item-heading" data-ng-bind="article.title"></h4>
 					<p class="list-group-item-text" data-ng-bind="article.content"></p>
+					 <tags-input data-ng-model="article.tags"></tags-input>
 				</div>
 				<div class="edit-remove-buttons">
 					<a type="button" class="btn btn-default btn-sm" data-ng-click="update()">
