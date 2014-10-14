@@ -15,9 +15,9 @@
 		<h2>Labels</h2>
 	</div>
 	<div class="col-md-9">
-		<p>SEARCH FEATURE</p>
-		<div class="list-group">
-			<div data-ng-repeat="article in articles" data-ng-href="#!/articles/{{article._id}}" class="list-group-item">
+		<input class="search" ng-model="searchText" placeholder="Search">
+			<div class="list-group">
+			<div data-ng-repeat="article in articles | filter:searchText" data-ng-href="#!/articles/{{article._id}}" class="list-group-item">
 				<div class="bookmark-details">
 					<h4 class="list-group-item-heading" data-ng-bind="article.title"></h4>
 					<p class="list-group-item-text" data-ng-bind="article.content"></p>
