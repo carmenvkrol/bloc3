@@ -65,8 +65,8 @@ input.search {
 } 
 
 .list-group-item {
-  border: 1px solid @yellow;
-  height: 100px;
+  border: 3px solid @yellow;
+  height: 130px;
 
   .bookmark-details {
     float: left;
@@ -78,8 +78,30 @@ input.search {
   }
 
   .list-group-item-text {
+    margin-bottom: 15px;
     font-size: 18px;
     color: @darkgray;
+  }
+
+  .tags input {
+    display: none;
+  }
+
+  .tag-list {
+    padding-left: 0;
+    list-style: none;
+    li.tag-item {
+      display: inline;
+      margin-right: 10px;
+      border-radius: 5px;
+      padding: 3px 10px;
+      background-color: @blue;
+      font-size: 18px;
+      color: white;
+      a {
+        display: none;
+      }
+    }
   }
 
   .edit-remove-buttons {

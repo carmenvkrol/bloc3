@@ -12,7 +12,7 @@
 			<i class="glyphicon glyphicon-arrow-right"></i>
 			<span class="bookmark-link">Connect with Provider</span>
 		</a>
-		<h2>Labels</h2>
+		<h2>Tags</h2>
 	</div>
 	<div class="col-md-9">
 		<input class="search" ng-model="searchText" placeholder="Search">
@@ -24,7 +24,7 @@
 					 <tags-input data-ng-model="article.tags"></tags-input>
 				</div>
 				<div class="edit-remove-buttons">
-					<a type="button" class="btn btn-default btn-sm" data-ng-click="update()">
+					<a type="button" class="btn btn-default btn-sm" data-ng-click="update(article)">
   					<i class="glyphicon glyphicon-pencil"></i>
 					</a>
 					<a type="button" class="btn btn-default btn-sm" data-ng-click="remove(article)">

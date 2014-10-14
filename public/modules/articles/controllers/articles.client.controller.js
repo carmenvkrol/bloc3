@@ -40,8 +40,10 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 			}
 		};
 
-		$scope.update = function() {
-			var article = $scope.article;
+		$scope.update = function(article) {
+			//var article = $scope.article;
+
+			console.log(article);
 
 			article.$update(function() {
 				$location.path('articles/' + article._id);

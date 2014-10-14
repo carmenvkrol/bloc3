@@ -56,8 +56,8 @@ input.search {
 }
 
 .list-group-item {
-  height: 100px;
-  border: 1px solid #faf283;
+  height: 130px;
+  border: 3px solid #faf283;
 }
 
 .list-group-item .bookmark-details {
@@ -70,8 +70,32 @@ input.search {
 }
 
 .list-group-item .list-group-item-text {
+  margin-bottom: 15px;
   font-size: 18px;
   color: #73797e;
+}
+
+.list-group-item .tags input {
+  display: none;
+}
+
+.list-group-item .tag-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-group-item .tag-list li.tag-item {
+  display: inline;
+  padding: 3px 10px;
+  margin-right: 10px;
+  font-size: 18px;
+  color: white;
+  background-color: #67bdee;
+  border-radius: 5px;
+}
+
+.list-group-item .tag-list li.tag-item a {
+  display: none;
 }
 
 .list-group-item .edit-remove-buttons {
