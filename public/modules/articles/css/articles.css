@@ -175,6 +175,20 @@ form input.btn.btn-default.btn-new-task:hover {
   background-color: #67bdee;
 }
 
+form input.btn.btn-default.btn-update-task {
+  margin-top: 30px;
+  font-family: 'Hind', sans-serif;
+  font-size: 18px;
+  text-shadow: none;
+  background-color: #faf283;
+  background-image: none;
+  border: none;
+}
+
+form input.btn.btn-default.btn-update-task:hover {
+  background-color: #67bdee;
+}
+
 form .form-group {
   margin-right: auto;
   margin-left: auto;

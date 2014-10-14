@@ -23,8 +23,9 @@
 						<p ng-show="articleForm.content.$error.required" class="text-danger">Content is required</p>
 					</div>
 				</div>
+				<tags-input data-ng-model="article.tags"></tags-input>
 				<div class="form-group">
-					<input type="submit" value="Update" class="btn btn-default">
+					<input type="submit" value="Update" class="btn btn-default btn-update-task">
 				</div>
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>
