@@ -128,7 +128,41 @@ form input.form-control {
   font-size: 20px;
 }
 
+form .tag-list {
+  display: inline;
+  padding-left: 0;
+  margin-left: -15px;
+  list-style: none;
+}
+
+form .tag-list li.tag-item {
+  display: inline;
+  padding: 5px 10px;
+  margin-right: 10px;
+  font-size: 18px;
+  color: white;
+  background-color: #67bdee;
+  border-radius: 5px;
+}
+
+form .tag-list li.tag-item a {
+  margin-left: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+form input.input {
+  width: 150px !important;
+  height: 39px;
+  padding-top: 5px;
+  padding-left: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
 form input.btn.btn-default.btn-new-task {
+  margin-top: 15px;
   font-family: 'Hind', sans-serif;
   font-size: 18px;
   text-shadow: none;
