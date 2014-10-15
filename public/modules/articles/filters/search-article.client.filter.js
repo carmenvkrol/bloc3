@@ -7,7 +7,9 @@ angular.module('articles').filter('searchArticle', [
       var filtered = [];
 
       angular.forEach(items, function(item) {
-        if( item.label.indexOf(searchText) >= 0 ) filtered.push(item);
+        if ( item.title.indexOf(searchText) >= 0 ) {
+          filtered.push(item);
+        }
       });
 
 			return filtered;
