@@ -13,6 +13,10 @@
 			<span class="bookmark-link">Connect with Provider</span>
 		</a>
 		<h2>Tags</h2>
+		<ul data-ng-repeat="article in articles" data-ng-href="#!/articles/{{article._id}}">
+				<li>{{article.tags[0]['text']}}</li>
+				<li>{{article.tags[1]['text']}}</li>
+		</ul>
 	</div>
 	<div class="col-md-9">
 		<input class="search" data-ng-model="searchText" placeholder="Search">
