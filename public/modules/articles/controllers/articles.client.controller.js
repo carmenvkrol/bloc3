@@ -40,13 +40,11 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 			}
 		};
 
-		$scope.update = function(article) {
-			//var article = $scope.article;
-
-			console.log(article);
+		$scope.update = function() {
+			var article = $scope.article;
 
 			article.$update(function() {
-				$location.path('articles/' + article._id + '/edit');
+				$location.path('articles');
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
