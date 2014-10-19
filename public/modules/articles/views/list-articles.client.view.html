@@ -2,7 +2,7 @@
 	<div class="page-header">
 		<h1>Bookmarks</h1>
 	</div>
-	<div class="col-md-3">
+	<div class="col-md-2" col-md-offset="1">
 		<a ui-sref="createArticle">
 			<i class="glyphicon glyphicon-plus"></i>
 			<span class="bookmark-link">Add Bookmark</span>
@@ -13,9 +13,10 @@
 			<span class="bookmark-link">Connect with Provider</span>
 		</a>
 		<h2>Tags</h2>
-		<ul data-ng-repeat="article in articles" data-ng-href="#!/articles/{{article._id}}">
-				<li>{{article.tags[0]['text']}}</li>
-				<li>{{article.tags[1]['text']}}</li>
+		<ul class="tag-search-list" data-ng-init="findTags()">
+			<div data-ng-repeat="tag in tags" data-ng-href="articles_tags">
+				<li>{{tag}}</li>
+			</div>
 		</ul>
 	</div>
 	<div class="col-md-9">

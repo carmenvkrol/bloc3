@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('articles').controller('ArticlesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Articles',
-	function($scope, $stateParams, $location, Authentication, Articles) {
+angular.module('articles').controller('ArticlesController', ['$http', '$scope', '$stateParams', '$location', '$timeout', 'Authentication', 'Articles',
+	function($http, $scope, $stateParams, $location, $timeout, Authentication, Articles) {
 		$scope.authentication = Authentication;
 
 		$scope.create = function() {
@@ -58,6 +58,21 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 			$scope.article = Articles.get({
 				articleId: $stateParams.articleId
 			});
+		};
+
+		$scope.findTags = function() {
+			 $http
+          .get('/article_tags')
+          .success(function(data){
+          		$timeout(function() {
+          			$scope.tags = data;
+          		});
+           })
+           .error(function(){
+           });
+
+        $scope.tags = {};
+        console.log($scope.tags);
 		};
 	}
 ]);

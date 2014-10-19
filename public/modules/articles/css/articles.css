@@ -4,6 +4,24 @@ a:hover {
   text-decoration: none;
 }
 
+.tag-search-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.tag-search-list li {
+  width: 30%;
+  margin-top: 10px;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-left: auto;
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  background-color: #67bdee;
+  border-radius: 10px;
+}
+
 .page-header {
   border-bottom: none;
 }
@@ -40,8 +58,10 @@ a:hover {
 }
 
 h2 {
+  margin-bottom: 20px;
   font-family: 'Permanent Marker', cursive;
   color: #67bdee;
+  text-align: center;
 }
 
 input.search {

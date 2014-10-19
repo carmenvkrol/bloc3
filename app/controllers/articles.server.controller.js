@@ -107,3 +107,35 @@ exports.hasAuthorization = function(req, res, next) {
 	}
 	next();
 };
+
+// exports.tags = function(req, res) {
+// 	Article.find().sort('-created').populate('user', 'displayName').exec(function(err, articles) {
+// 		if (err) {
+// 			return res.status(400).send({
+// 				message: errorHandler.getErrorMessage(err)
+// 			});
+// 		} else {
+// 			res.jsonp(articles);
+// 		}
+// 	});
+// };
+
+exports.tags = function(req, res) {
+	var tags = [];
+	var articleTags = [];
+	Article.find().exec(function(err, articles) {
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			for (var i = 0; i < articles.length; i++) {
+				articleTags = articles[i].tags;
+				for (var j = 0; j < articleTags.length; j++) {
+						tags.push(articleTags[j].text);
+				}
+			}
+			res.jsonp(_.uniq(tags));
+		}
+	});
+};
