@@ -108,18 +108,6 @@ exports.hasAuthorization = function(req, res, next) {
 	next();
 };
 
-// exports.tags = function(req, res) {
-// 	Article.find().sort('-created').populate('user', 'displayName').exec(function(err, articles) {
-// 		if (err) {
-// 			return res.status(400).send({
-// 				message: errorHandler.getErrorMessage(err)
-// 			});
-// 		} else {
-// 			res.jsonp(articles);
-// 		}
-// 	});
-// };
-
 exports.tags = function(req, res) {
 	var tags = [];
 	var articleTags = [];

@@ -18,8 +18,13 @@ a:hover {
   font-size: 24px;
   color: white;
   text-align: center;
+  cursor: pointer;
   background-color: #67bdee;
   border-radius: 10px;
+}
+
+.tag-search-list li:hover {
+  background-color: #b4a4cb;
 }
 
 .page-header {
