@@ -15,14 +15,14 @@
 		<h2>Tags</h2>
 		<ul class="tag-search-list" data-ng-init="findTags()">
 			<div data-ng-repeat="tag in tags" data-ng-href="articles_tags">
-				<li data-ng-click="findOneTag()">{{tag}}</li>
+				<li data-ng-click="findOneTag(tag)">{{tag}}</li>
 			</div>
 		</ul>
 	</div>
 	<div class="col-md-9">
 		<input class="search" data-ng-model="searchText" placeholder="Search">
 			<div class="list-group">
-			<div data-ng-repeat="article in articles | searchArticle:searchText" data-ng-href="#!/articles/{{article._id}}" class="list-group-item" ng-show="tagOnLoad || tagSelected">
+			<div data-ng-repeat="article in articles | searchArticle:searchText | articlesByTag:selectedTag" data-ng-href="#!/articles/{{article._id}}" class="list-group-item">
 				<div class="bookmark-details">
 					<h4 class="list-group-item-heading" data-ng-bind="article.title"></h4>
 					<p class="list-group-item-text" data-ng-bind="article.content"></p>
