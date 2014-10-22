@@ -83,8 +83,9 @@ angular.module('articles').controller('ArticlesController', ['$http', '$scope', 
 
 		$scope.findOneTag = function() {
 			$scope.find().then(function (data) {
+				$scope.articles = data;
 				$scope.articles2 = [];
-				data.map(function (article) {
+				data.articles.map(function (article) {
 					var tags = article.tags.map(function (tag) {
 						return tag.text;
 					});
