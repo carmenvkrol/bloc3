@@ -81,13 +81,22 @@ input.search {
 }
 
 .list-group-item {
-  height: 130px;
+  height: 200px;
   border: 3px solid #faf283;
 }
 
 .list-group-item .bookmark-details {
   display: inline-block;
   float: left;
+}
+
+.list-group-item .bookmark-details a {
+  margin-top: 10px;
+}
+
+.list-group-item .bookmark-details p {
+  margin-top: 10px;
+  color: black;
 }
 
 .list-group-item .list-group-item-heading {

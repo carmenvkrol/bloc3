@@ -20,6 +20,11 @@ var ArticleSchema = new Schema({
 		trim: true,
 		required: 'Title cannot be blank'
 	},
+	link: {
+		type: String,
+		default: '',
+		trim: true
+	},
 	content: {
 		type: String,
 		default: '',

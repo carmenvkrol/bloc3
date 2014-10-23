@@ -25,6 +25,7 @@
 			<div data-ng-repeat="article in articles | searchArticle:searchText | articlesByTag:selectedTag" data-ng-href="#!/articles/{{article._id}}" class="list-group-item">
 				<div class="bookmark-details">
 					<h4 class="list-group-item-heading" data-ng-bind="article.title"></h4>
+					<a class="list-group-item-text" href="{{article.link}}">{{article.link}}</a>
 					<p class="list-group-item-text" data-ng-bind="article.content"></p>
 					 <tags-input data-ng-model="article.tags"></tags-input>
 				</div>

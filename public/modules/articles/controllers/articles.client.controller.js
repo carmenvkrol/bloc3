@@ -2,18 +2,13 @@
 
 angular.module('articles').controller('ArticlesController', ['$http', '$scope', '$stateParams', '$location', '$timeout', 'Authentication', 'Articles',
   function($http, $scope, $stateParams, $location, $timeout, Authentication, Articles) {
-    var tagOnLoad;
-    var tagSelected;
-
-    $scope.tagOnLoad = true;
-
-    $scope.tagSelected = false;
 
     $scope.authentication = Authentication;
 
     $scope.create = function() {
       var article = new Articles({
         title: this.title,
+        link: this.link,
         content: this.content,
         tags: this.tags
       });
@@ -21,6 +16,7 @@ angular.module('articles').controller('ArticlesController', ['$http', '$scope', 
         $location.path('articles');
 
         $scope.title = '';
+        $scope.link = this.link;
         $scope.content = '';
         $scope.tags = '';
         $scope.find();
