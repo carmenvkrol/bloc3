@@ -28,11 +28,12 @@ header .navbar-brand {
   font-family: 'Permanent Marker', cursive;
   font-size: 40px;
   color: #faf283;
+  background-color: #73797e;
 }
 
 header a {
   color: #faf283;
-  background-color: #73797e;
+  background-color: white;
 }
 
 header a:hover {
@@ -58,6 +59,10 @@ header a.dropdown-toggle:hover {
 header .nav .open > a,
 header .nav .open > a:hover,
 header .nav .open > a:focus {
+  background-color: #73797e;
+}
+
+header .navbar-nav > li > a {
   background-color: #73797e;
 }
 
