@@ -11,22 +11,19 @@ angular.module('articles').filter('articlesByTag', [
       }
 
       var tags;
+      var intersect;
 
       angular.forEach(articles, function(article) {
         tags = article.tags.map(function (tag) {
           return tag.text;
         });
 
+        intersect = _.intersection(tags, selectedTags);
 
-        var testFunction = function () {
-          selectedTags.map(function (tag) {
-            return (tags.indexOf(tag) !== -1);
-          });
-        };
-
-        if(article.tags.every(testFunction)) {
+        if (intersect.length === selectedTags.length) {
           filtered.push(article);
         }
+
       });
 
       return filtered;
