@@ -2,11 +2,11 @@
 
 angular.module('articles').filter('articlesByTag', [
   function() {
-    return function(articles, tag) {
+    return function(articles, selectedTags) {
 
       var filtered = [];
 
-      if (tag === undefined) {
+      if (selectedTags.length === 0) {
         return articles;
       }
 
@@ -17,12 +17,19 @@ angular.module('articles').filter('articlesByTag', [
           return tag.text;
         });
 
-        if ( tags.indexOf(tag) !== -1 ) {
+
+        var testFunction = function () {
+          selectedTags.map(function (tag) {
+            return (tags.indexOf(tag) !== -1);
+          });
+        };
+
+        if(article.tags.every(testFunction)) {
           filtered.push(article);
         }
       });
 
       return filtered;
     };
-  }
+}
 ]);

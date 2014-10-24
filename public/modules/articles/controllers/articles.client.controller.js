@@ -80,5 +80,24 @@ angular.module('articles').controller('ArticlesController', ['$http', '$scope', 
     $scope.findOneTag = function(tag) {
       $scope.selectedTag = tag;
     };
+// tags
+
+  // selected tags
+  $scope.selection = [];
+
+  // toggle selection for a given tag by name
+  $scope.toggleSelection = function toggleSelection(tag) {
+    var idx = $scope.selection.indexOf(tag);
+
+    // is currently selected
+    if (idx > -1) {
+      $scope.selection.splice(idx, 1);
+    }
+
+    // is newly selected
+    else {
+      $scope.selection.push(tag);
+    }
+  };
   }
 ]);
