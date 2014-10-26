@@ -108,6 +108,11 @@ input.search {
   color: black;
 }
 
+.list-group-item .bookmark-details .tags {
+  border: none;
+  box-shadow: none;
+}
+
 .list-group-item .list-group-item-heading {
   font-size: 24px;
 }
@@ -129,11 +134,15 @@ input.search {
 
 .list-group-item .tag-list li.tag-item {
   display: inline;
+  width: 75px;
+  height: auto;
   padding: 3px 10px;
   margin-right: 10px;
   font-size: 18px;
   color: white;
+  text-align: center;
   background-color: #67bdee;
+  border: none;
   border-radius: 5px;
 }
 
@@ -180,6 +189,7 @@ form .tag-list {
 
 form .tag-list li.tag-item {
   display: inline;
+  height: auto;
   padding: 5px 10px;
   margin-right: 10px;
   font-size: 18px;
@@ -194,18 +204,19 @@ form .tag-list li.tag-item a {
   cursor: pointer;
 }
 
-form .suggestion-list {
-  list-style: none;
-}
-
 form input.input {
   width: 150px !important;
-  height: 39px;
+  height: 40px;
   padding-top: 5px;
   padding-left: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+form .host input.input {
+  height: 40px;
+  margin-left: 0;
 }
 
 form input.btn.btn-default.btn-new-task {
