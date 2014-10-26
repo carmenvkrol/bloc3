@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('articles').controller('ArticlesController', ['$http', '$scope', '$stateParams', '$location', '$timeout', 'Authentication', 'Articles',
-  function($http, $scope, $stateParams, $location, $timeout, Authentication, Articles) {
+angular.module('articles').controller('ArticlesController', ['$http', '$scope', '$stateParams', '$location', '$timeout', '$resource', 'Authentication', 'Articles',
+  function($http, $scope, $stateParams, $location, $timeout, $resource, Authentication, Articles) {
 
     $scope.authentication = Authentication;
 
@@ -99,5 +99,12 @@ angular.module('articles').controller('ArticlesController', ['$http', '$scope', 
       $scope.selection.push(tag);
     }
   };
+
+  var tags = $resource('/article_tags');
+
+  $scope.loadTags = function(query) {
+    return tags.query().$promise;
+  };
+
   }
 ]);

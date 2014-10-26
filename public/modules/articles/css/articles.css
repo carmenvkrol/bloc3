@@ -10,21 +10,30 @@ a:hover {
 }
 
 .tag-search-list li {
-  width: 30%;
+  width: 50%;
   margin-top: 10px;
   margin-right: auto;
   margin-bottom: 10px;
   margin-left: auto;
-  font-size: 24px;
-  color: white;
-  text-align: center;
-  cursor: pointer;
   background-color: #67bdee;
   border-radius: 10px;
 }
 
-.tag-search-list li:hover {
-  background-color: #b4a4cb;
+.tag-search-list li .tag-search-list-item {
+  display: inline-block;
+  width: 80%;
+  padding-left: 10px;
+  font-size: 24px;
+  color: white;
+  text-align: left;
+}
+
+.tag-search-list li input {
+  text-align: right;
+}
+
+.tag-search-list li input:hover {
+  cursor: pointer;
 }
 
 .page-header {
@@ -183,6 +192,10 @@ form .tag-list li.tag-item a {
   margin-left: 5px;
   color: white;
   cursor: pointer;
+}
+
+form .suggestion-list {
+  list-style: none;
 }
 
 form input.input {
