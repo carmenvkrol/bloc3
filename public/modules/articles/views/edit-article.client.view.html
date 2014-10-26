@@ -26,7 +26,9 @@
 						<textarea name="content" data-ng-model="article.content" id="content" class="form-control" cols="30" rows="10" placeholder="Notes"></textarea>
 					</div>
 				</div>
-				<tags-input data-ng-model="article.tags"></tags-input>
+				<tags-input data-ng-model="article.tags">
+					<auto-complete source="loadTags($query)"></auto-complete>
+				</tags-input>
 				<div class="form-group">
 					<input type="submit" value="Update" class="btn btn-default btn-update-task">
 				</div>
