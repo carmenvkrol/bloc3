@@ -1,0 +1,11 @@
+<section data-ng-controller="TagsController">
+	   <ul class="tag-search-list" data-ng-init="findTags()">
+        <!--<li data-ng-click="findOneTag(tag)"><input type="checkbox" name="tags" ng-model="selectedTags">{{tag}}</li>-->
+        <li data-ng-repeat="tag in tags" data-ng-href="articles_tags">
+          <div class="tag-search-list-item">{{tag}}</div> 
+          <a type="button" class="btn btn-default btn-sm" data-ng-click="deleteTag(tag)">
+            <i class="glyphicon glyphicon-trash"></i>
+          </a>
+        </li>
+    </ul>
+</section>
