@@ -12,6 +12,7 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
           .success(function(data){
               $timeout(function() {
                 $scope.tags = data;
+                $scope.tags.sort();
               });
            })
            .error(function(){
@@ -38,6 +39,11 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
         .success(function(article){
             article;
         });
+    };
+
+    $scope.updateTag = function() {
+      var tag = $scope.tag;
+
     };
 
     $scope.deleteTag = function(tag) {

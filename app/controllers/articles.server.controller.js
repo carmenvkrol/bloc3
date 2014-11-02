@@ -109,8 +109,12 @@ exports.hasAuthorization = function(req, res, next) {
 };
 
 exports.tags = function(req, res) {
-	var tags = [];
+	var rawTags = [];
 	var articleTags = [];
+	var articleID;
+	var completeTags = {};
+	var completeTagsName = [];
+
 	Article.find( { user: req.user.id }).exec(function(err, articles) {
 		if (err) {
 			return res.status(400).send({
@@ -120,10 +124,25 @@ exports.tags = function(req, res) {
 			for (var i = 0; i < articles.length; i++) {
 				articleTags = articles[i].tags;
 				for (var j = 0; j < articleTags.length; j++) {
-						tags.push(articleTags[j].text);
+					rawTags.push(articleTags[j].text);
+			}
+		}
+			var tags = _.uniq(rawTags);
+			for (var k = 0; k < tags.length; k++) {
+				var tag = tags[k];
+				completeTags[tag] = [];
+				for (var m = 0; m < articles.length; m++) {
+					articleTags = articles[m].tags;
+					articleID = articles[m]._id;
+					for (var n = 0; n < articleTags.length; n++) {	
+						if (tag === articleTags[n].text) {
+							completeTags[tag].push(articleID);
+						}
+					}
 				}
 			}
-			res.jsonp(_.uniq(tags));
+			res.jsonp(completeTags);
 		}
 	});
+
 };

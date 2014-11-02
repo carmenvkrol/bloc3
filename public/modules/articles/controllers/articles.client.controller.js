@@ -69,6 +69,7 @@ angular.module('articles').controller('ArticlesController', ['$http', '$scope', 
           .success(function(data){
               $timeout(function() {
                 $scope.tags = data;
+                $scope.tags.sort();
               });
            })
            .error(function(){
