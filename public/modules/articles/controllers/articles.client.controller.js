@@ -64,18 +64,23 @@ angular.module('articles').controller('ArticlesController', ['$http', '$scope', 
     };
 
     $scope.findTags = function() {
+       var rawTags = {};
+
        $http
           .get('/article_tags')
           .success(function(data){
               $timeout(function() {
-                $scope.tags = data;
-                $scope.tags.sort();
+                rawTags = data;
+                console.log(rawTags);
+                for (var prop in rawTags) {
+                  $scope.tags.push(prop);
+                }
               });
            })
            .error(function(){
            });
 
-        $scope.tags = {};
+        $scope.tags = [];
     };
 
     $scope.findOneTag = function(tag) {

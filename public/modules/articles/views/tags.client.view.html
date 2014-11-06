@@ -1,21 +1,21 @@
 <section data-ng-controller="TagsController">
 	   <ul class="tag-search-list" data-ng-init="findTags()">
         <!--<li data-ng-click="findOneTag(tag)"><input type="checkbox" name="tags" ng-model="selectedTags">{{tag}}</li>-->
-        <li data-ng-repeat="tag in tags" data-ng-href="articles_tags">
-          <div class="tag-search-list-item">{{tag}}</div> 
+        <li data-ng-repeat="(key,val) in tags" data-ng-href="articles_tags">
+          <div class="tag-search-list-item">{{key}}</div> 
           <a type="button" class="btn btn-default btn-sm" data-ng-click="">
             <i class="glyphicon glyphicon-pencil"></i>
           </a>
-          <a type="button" class="btn btn-default btn-sm" data-ng-click="deleteTag(tag)">
+          <a type="button" class="btn btn-default btn-sm" data-ng-click="deleteTag(key)">
             <i class="glyphicon glyphicon-trash"></i>
           </a>
         </li>
     </ul>
 
-    <div ng-repeat="tag in tags" data-ng-href="articles_tags">
+    <div ng-repeat="(key,val) in tags" data-ng-href="articles_tags">
       <form name="tagForm" class="form-horizontal" data-ng-submit="updateTag(tagForm.$valid)" novalidate>
         <fieldset>
-          <input name="tag" type="text" data-ng-model="tag" id="tag" class="form-control" placeholder="tag" required>
+          <input name="tag" type="text" data-ng-model="key" id="tag" class="form-control" placeholder="key" required>
           <input type="submit" value="updateTag" class="btn btn-default btn-update-task">
         </fieldset>
     </form>

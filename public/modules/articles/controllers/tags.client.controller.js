@@ -7,18 +7,18 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
 		
     //MAKE THIS INTO SERVICE IF KEEP USING
     $scope.findTags = function() {
+
        $http
           .get('/article_tags')
           .success(function(data){
               $timeout(function() {
                 $scope.tags = data;
-                $scope.tags.sort();
               });
            })
            .error(function(){
            });
 
-        $scope.tags = {};
+        $scope.tags = [];
     };
 
     $scope.getArticles = function() {
@@ -42,7 +42,20 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
     };
 
     $scope.updateTag = function() {
-      var tag = $scope.tag;
+
+      var val = this.val;
+      var updateKey = this.key;
+
+      $scope.getArticles();
+
+      angular.forEach(articles, function(article){
+        for (var i=0; i < val.length; i++) {
+          if (val[i] === article._id) {
+            article.tags.push({'text':updateKey});
+            $scope.updateArticle(article);
+          }
+        }
+      });
 
     };
 
