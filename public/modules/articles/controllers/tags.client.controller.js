@@ -3,8 +3,8 @@
 angular.module('articles').controller('TagsController', ['$http', '$scope', '$stateParams', '$location', '$timeout', '$resource', 'Authentication', 'Articles',
 	function($http, $scope, $stateParams, $location, $timeout, $resource, Authentication, Articles) {
 
-    var articles = []; 
-		
+    var articles = [];
+
     //MAKE THIS INTO SERVICE IF KEEP USING
     $scope.findTags = function() {
 
@@ -13,6 +13,7 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
           .success(function(data){
               $timeout(function() {
                 $scope.tags = data;
+                console.log(data);
               });
            })
            .error(function(){
@@ -30,7 +31,7 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
           });
         })
         .error(function(){
-        }); 
+        });
     };
 
     $scope.updateArticle = function(article) {
@@ -45,13 +46,17 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
 
       var val = this.val;
       var updateKey = this.key;
+      var oldKey = this.val.original;
+      //console.log(oldKey);
 
       $scope.getArticles();
 
       angular.forEach(articles, function(article){
-        for (var i=0; i < val.length; i++) {
-          if (val[i] === article._id) {
+        for (var i=0; i < val.bookmarks.length; i++) {
+          if (val.bookmarks[i] === article._id) {
             article.tags.push({'text':updateKey});
+            console.log(article);
+            $scope.deleteTag(oldKey);
             $scope.updateArticle(article);
           }
         }
