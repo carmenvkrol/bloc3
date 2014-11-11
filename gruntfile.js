@@ -25,6 +25,7 @@ module.exports = function(grunt) {
         files: {
           //target.css file: source.less file
           'public/modules/articles/css/articles.css' : 'public/modules/articles/css/articles.less',
+          'public/modules/articles/css/tags.css' : 'public/modules/articles/css/tags.less',
           'public/modules/core/css/core.css' : 'public/modules/core/css/core.less',
           'public/modules/users/css/users.css' : 'public/modules/users/css/users.less'
         }
@@ -79,6 +80,7 @@ module.exports = function(grunt) {
       },
       recess: {
         files: ['public/modules/articles/css/articles.less',
+                'public/modules/articles/css/tags.less',
         				'public/modules/core/css/core.less',
         				'public/modules/users/css/users.less'],
         tasks: ['recess:dist']

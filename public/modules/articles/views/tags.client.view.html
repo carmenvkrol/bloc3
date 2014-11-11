@@ -1,24 +1,30 @@
 <section data-ng-controller="TagsController">
-	   <ul class="tag-search-list" data-ng-init="findTags()">
-        <!--<li data-ng-click="findOneTag(tag)"><input type="checkbox" name="tags" ng-model="selectedTags">{{tag}}</li>-->
-        <li data-ng-repeat="(key,val) in tags" data-ng-href="articles_tags">
-          <div class="tag-search-list-item">{{key}}</div> 
-          <a type="button" class="btn btn-default btn-sm" data-ng-click="">
-            <i class="glyphicon glyphicon-pencil"></i>
-          </a>
-          <a type="button" class="btn btn-default btn-sm" data-ng-click="deleteTag(key)">
-            <i class="glyphicon glyphicon-trash"></i>
-          </a>
-        </li>
-    </ul>
-
-    <div ng-repeat="(key,val) in tags" data-ng-href="articles_tags">
-      <form name="tagForm" class="form-horizontal" data-ng-submit="updateTag(tagForm.$valid)" novalidate>
-        <fieldset>
-          <input name="oldkey" type="hidden" data-ng-model="oldkey" class="form-control" value="val.original">
-          <input name="tag" type="text" data-ng-model="key" id="tag" class="form-control" placeholder="key" required>
-          <input type="submit" value="updateTag" class="btn btn-default btn-update-task">
-        </fieldset>
-    </form>
+	 <div class="page-header">
+    <h1>Tags</h1>
   </div>
+  <div class="col-md-2" col-md-offset="1">
+    <a ui-sref="articles">
+      <i class="glyphicon glyphicon-arrow-right"></i>
+      <span class="bookmark-link">Bookmarks</span>
+    </a>
+  </div>
+  <div class="col-md-9">
+   <ul class="tag-edit-remove-list" data-ng-init="findTags()">
+        <!--<li data-ng-click="findOneTag(tag)"><input type="checkbox" name="tags" ng-model="selectedTags">{{tag}}</li>-->
+      <li data-ng-repeat="(key,val) in tags" data-ng-href="articles_tags">
+
+            <input name="oldkey" type="hidden" data-ng-model="oldkey" class="form-control" value="val.original">
+            <input name="tag" type="text" data-ng-model="key" id="tag" class="form-control" placeholder="key" required>
+            <div class="form-group has-feedback has-feedback-left" data-ng-click="updateTag(key)">
+              <input type="submit" value="" class="form-control btn btn-default btn-sm">
+              <i class="glyphicon glyphicon-pencil form-control-feedback"></i>
+            </div>
+            <a type="button" class="btn btn-default btn-sm" data-ng-click="deleteTag(key)">
+              <i class="glyphicon glyphicon-trash"></i>
+            </a>
+
+      </li>
+    </ul>
+  </div>
+
 </section>

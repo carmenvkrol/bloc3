@@ -50,68 +50,37 @@
 			});
 		}));
 
-		it('$scope.find() should create an array with at least one article object fetched from XHR', inject(function(Articles) {
-			// Create sample article using the Articles service
-			var sampleArticle = new Articles({
-				title: 'An Article about MEAN',
-				content: 'MEAN rocks!'
-			});
-
-			// Create a sample articles array that includes the new article
-			var sampleArticles = [sampleArticle];
-
-			// Set GET response
-			$httpBackend.expectGET('articles').respond(sampleArticles);
-
-			// Run controller functionality
-			scope.find();
-			$httpBackend.flush();
-
-			// Test scope value
-			expect(scope.articles).toEqualData(sampleArticles);
-		}));
-
-		it('$scope.findOne() should create an array with one article object fetched from XHR using a articleId URL parameter', inject(function(Articles) {
-			// Define a sample article object
-			var sampleArticle = new Articles({
-				title: 'An Article about MEAN',
-				content: 'MEAN rocks!'
-			});
-
-			// Set the URL parameter
-			$stateParams.articleId = '525a8422f6d0f87f0e407a33';
-
-			// Set GET response
-			$httpBackend.expectGET(/articles\/([0-9a-fA-F]{24})$/).respond(sampleArticle);
-
-			// Run controller functionality
-			scope.findOne();
-			$httpBackend.flush();
-
-			// Test scope value
-			expect(scope.article).toEqualData(sampleArticle);
-		}));
-
 		it('$scope.create() with valid form data should send a POST request with the form input values and then locate to new object URL', inject(function(Articles) {
 			// Create a sample article object
 			var sampleArticlePostData = new Articles({
 				title: 'An Article about MEAN',
-				content: 'MEAN rocks!'
+				link: 'http://www.google.com',
+				content: 'MEAN rocks!',
+				tags: [{'text': 'tag-3'}]
 			});
 
 			// Create a sample article response
 			var sampleArticleResponse = new Articles({
 				_id: '525cf20451979dea2c000001',
 				title: 'An Article about MEAN',
-				content: 'MEAN rocks!'
+				link: 'http://www.google.com',
+				content: 'MEAN rocks!',
+				tags: [{'text': 'tag-3'}]
 			});
 
 			// Fixture mock form input values
 			scope.title = 'An Article about MEAN';
+			scope.link = 'http://www.google.com';
 			scope.content = 'MEAN rocks!';
+			scope.tags = [{'text' : 'tag-3'}];
 
 			// Set POST response
 			$httpBackend.expectPOST('articles', sampleArticlePostData).respond(sampleArticleResponse);
+
+			// Set GET response for scope.find()
+			var sampleArticles = [sampleArticleResponse];
+
+			$httpBackend.expectGET('articles').respond(sampleArticles);
 
 			// Run controller functionality
 			scope.create();
@@ -119,10 +88,39 @@
 
 			// Test form inputs are reset
 			expect(scope.title).toEqual('');
+			expect(scope.link).toEqual('');
 			expect(scope.content).toEqual('');
+			expect(scope.tags).toEqual('');
+
 
 			// Test URL redirection after the article was created
-			expect($location.path()).toBe('/articles/' + sampleArticleResponse._id);
+			expect($location.path()).toBe('/articles');
+
+		}));
+
+		it('$scope.remove() should send a DELETE request with a valid articleId and remove the article from the scope', inject(function(Articles) {
+			// Create new article object
+			var sampleArticle = new Articles({
+				_id: '525a8422f6d0f87f0e407a33'
+			});
+
+			// Create new articles array and include the article
+			scope.articles = [sampleArticle];
+
+			// Set expected DELETE response
+			$httpBackend.expectDELETE(/articles\/([0-9a-fA-F]{24})$/).respond(204);
+
+			// Set GET response for scope.find()
+			var sampleArticles = 0;
+
+			$httpBackend.expectGET('articles').respond(sampleArticles);
+
+			// Run controller functionality
+			scope.remove(sampleArticle);
+			$httpBackend.flush();
+
+			// Test array after successful delete
+			expect(scope.articles.length).toBe(0);
 		}));
 
 		it('$scope.update() should update a valid article', inject(function(Articles) {
@@ -144,27 +142,77 @@
 			$httpBackend.flush();
 
 			// Test URL location to new object
-			expect($location.path()).toBe('/articles/' + sampleArticlePutData._id);
+			expect($location.path()).toBe('/articles');
 		}));
 
-		it('$scope.remove() should send a DELETE request with a valid articleId and remove the article from the scope', inject(function(Articles) {
-			// Create new article object
+		it('$scope.find() should create an array with at least one article object fetched from XHR', inject(function(Articles) {
+			// Create sample article using the Articles service
 			var sampleArticle = new Articles({
-				_id: '525a8422f6d0f87f0e407a33'
+				title: 'An Article about MEAN',
+				link: 'http://www.google.com',
+				content: 'MEAN rocks!',
+				tags: [{'text': 'tag-3'}]
 			});
 
-			// Create new articles array and include the article
-			scope.articles = [sampleArticle];
+			// Create a sample articles array that includes the new article
+			var sampleArticles = [sampleArticle];
 
-			// Set expected DELETE response
-			$httpBackend.expectDELETE(/articles\/([0-9a-fA-F]{24})$/).respond(204);
+			// Set GET response
+			$httpBackend.expectGET('articles').respond(sampleArticles);
 
 			// Run controller functionality
-			scope.remove(sampleArticle);
+			scope.find();
 			$httpBackend.flush();
 
-			// Test array after successful delete
-			expect(scope.articles.length).toBe(0);
+			// Test scope value
+			expect(scope.articles).toEqualData(sampleArticles);
 		}));
+
+		it('$scope.findOne() should create an array with one article object fetched from XHR using a articleId URL parameter', inject(function(Articles) {
+			// Define a sample article object
+			var sampleArticle = new Articles({
+				title: 'An Article about MEAN',
+				link: 'http://www.google.com',
+				content: 'MEAN rocks!',
+				tags: [{'text': 'tag-3'}]
+			});
+
+			// Set the URL parameter
+			$stateParams.articleId = '525a8422f6d0f87f0e407a33';
+
+			// Set GET response
+			$httpBackend.expectGET(/articles\/([0-9a-fA-F]{24})$/).respond(sampleArticle);
+
+			// Run controller functionality
+			scope.findOne();
+			$httpBackend.flush();
+
+			// Test scope value
+			expect(scope.article).toEqualData(sampleArticle);
+		}));
+
+		it('scope.findTags() should load all tags', function() {
+			var sampleTags = {'tag-1':{}};
+
+			$httpBackend.expectGET('/article_tags').respond(sampleTags);
+
+			scope.findTags();
+			$httpBackend.flush();
+
+			expect(scope.tags).toEqual(['tag-1']);
+
+		});
+
+		it('$scope.toggleSelection(tag) splices tag if currently selected', function() {
+			scope.selection = ['tag'];
+			scope.toggleSelection('tag');
+			expect(scope.selection).toEqual([]);
+		});
+
+		it('scope.toggleSelection(tag) pushes tag if newly selected', function() {
+			scope.selection = [];
+			scope.toggleSelection('tag');
+			expect(scope.selection).toEqual(['tag']);
+		});
 	});
 }());

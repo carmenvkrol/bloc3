@@ -16,7 +16,7 @@ angular.module('articles').controller('ArticlesController', ['$http', '$scope', 
         $location.path('articles');
 
         $scope.title = '';
-        $scope.link = this.link;
+        $scope.link = '';
         $scope.content = '';
         $scope.tags = '';
         $scope.find();
@@ -69,24 +69,17 @@ angular.module('articles').controller('ArticlesController', ['$http', '$scope', 
        $http
           .get('/article_tags')
           .success(function(data){
-              $timeout(function() {
-                rawTags = data;
-                console.log(rawTags);
-                for (var prop in rawTags) {
-                  $scope.tags.push(prop);
-                }
-              });
+              rawTags = data;
+              console.log(rawTags);
+              for (var prop in rawTags) {
+                $scope.tags.push(prop);
+              }
            })
            .error(function(){
            });
 
         $scope.tags = [];
     };
-
-    $scope.findOneTag = function(tag) {
-      $scope.selectedTag = tag;
-    };
-// tags
 
   // selected tags
   $scope.selection = [];
@@ -107,10 +100,6 @@ angular.module('articles').controller('ArticlesController', ['$http', '$scope', 
   };
 
   var tags = $resource('/article_tags');
-
-  $scope.loadTags = function(query) {
-    return tags.query().$promise;
-  };
 
   }
 ]);

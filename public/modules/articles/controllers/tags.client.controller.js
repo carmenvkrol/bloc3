@@ -7,14 +7,11 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
 
     //MAKE THIS INTO SERVICE IF KEEP USING
     $scope.findTags = function() {
-
        $http
           .get('/article_tags')
           .success(function(data){
-              $timeout(function() {
-                $scope.tags = data;
-                console.log(data);
-              });
+              $scope.tags = data;
+              console.log(data);
            })
            .error(function(){
            });
@@ -42,7 +39,7 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
         });
     };
 
-    $scope.updateTag = function() {
+    $scope.updateTag = function(key) {
 
       var val = this.val;
       var updateKey = this.key;

@@ -50,9 +50,24 @@
 			});
 		}));
 
-		it('Should do some controller test', inject(function() {
-			// The test logic
-			// ...
-		}));
+		it('$scope.findTags() should find tags', function() {
+			
+		});
+
+		it('$scope.getArticles() should get articles', function() {
+		
+		});
+
+		it('$scope.updateArticle(article) should update article', function() {
+
+		});
+
+		it('$scope.updateTag(key) should update tag', function() {
+	
+		});
+
+		it('$scope.deleteTag(tag) should delete tag', function() {
+
+		});
 	});
 }());
