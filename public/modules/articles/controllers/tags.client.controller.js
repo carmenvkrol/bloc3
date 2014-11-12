@@ -18,14 +18,11 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
         $scope.tags = [];
     };
 
-    $scope.getArticles = function(callback) {
-      $http
+    $scope.getArticles = function() {
+      return $http
         .get('/articles')
         .success(function(data){
           articles = data;
-          if (callback !== undefined) {
-            callback();
-          }
           console.log(data);
         })
         .error(function(){
@@ -44,14 +41,15 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
       var val = this.val;
       var updateKey = this.key;
       var oldKey = this.val.original;
+      var promise = $scope.getArticles();
 
-      $scope.getArticles(function () {
+      promise.then(function () {
         angular.forEach(articles, function(article){
           for (var i=0; i < val.bookmarks.length; i++) {
             if (val.bookmarks[i] === article._id) {
               article.tags.push({'text':updateKey});
               $q.all($scope.deleteTag(oldKey)).then(function () {
-                $scope.updateArticle(article);  
+                $scope.updateArticle(article);
               });
             }
           }
@@ -61,20 +59,22 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
 
     $scope.deleteTag = function(tag) {
         var updateCalls = [];
-        $scope.getArticles();
-
-        angular.forEach(articles, function(article){
+        var promise = $scope.getArticles();
+        
+        promise.then(function (){
+          angular.forEach(articles, function(article){
             for (var i=0; i<article.tags.length; i++) {
               if (tag === article.tags[i].text) {
                 article.tags.splice(i,1);
                 updateCalls.push($scope.updateArticle(article));
               }
             }
-        });
-        $q.all(updateCalls).then(function () {
-          $scope.findTags();
-        });
-        return updateCalls;
-      };
+          });
+          $q.all(updateCalls).then(function () {
+            $scope.findTags();
+          });
+          return updateCalls;
+        });  
+    };
 	}
 ]);
