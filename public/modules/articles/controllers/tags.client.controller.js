@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('articles').controller('TagsController', ['$http', '$scope', '$stateParams', '$location', '$timeout', '$resource', 'Authentication', 'Articles',
-	function($http, $scope, $stateParams, $location, $timeout, $resource, Authentication, Articles) {
+angular.module('articles').controller('TagsController', ['$http', '$scope', '$stateParams', '$location', '$timeout', '$resource', '$q', 'Authentication', 'Articles',
+	function($http, $scope, $stateParams, $location, $timeout, $resource, $q, Authentication, Articles) {
 
     var articles = [];
 
@@ -11,7 +11,6 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
           .get('/article_tags')
           .success(function(data){
               $scope.tags = data;
-              console.log(data);
            })
            .error(function(){
            });
@@ -19,24 +18,25 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
         $scope.tags = [];
     };
 
-    $scope.getArticles = function() {
+    $scope.getArticles = function(callback) {
       $http
         .get('/articles')
         .success(function(data){
-          $timeout(function(){
-            articles = data;
-          });
+          articles = data;
+          if (callback !== undefined) {
+            callback();
+          }
+          console.log(data);
         })
         .error(function(){
+          console.log('error in getArticles');
         });
     };
 
     $scope.updateArticle = function(article) {
-      $http
-        .put('/articles/' + article._id, article)
-        .success(function(article){
-            article;
-        });
+      return $http.put('/articles/' + article._id, article).success(function(article){
+        article;
+      });
     };
 
     $scope.updateTag = function(key) {
@@ -44,39 +44,37 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
       var val = this.val;
       var updateKey = this.key;
       var oldKey = this.val.original;
-      //console.log(oldKey);
 
-      $scope.getArticles();
-
-      angular.forEach(articles, function(article){
-        for (var i=0; i < val.bookmarks.length; i++) {
-          if (val.bookmarks[i] === article._id) {
-            article.tags.push({'text':updateKey});
-            console.log(article);
-            $scope.deleteTag(oldKey);
-            $scope.updateArticle(article);
+      $scope.getArticles(function () {
+        angular.forEach(articles, function(article){
+          for (var i=0; i < val.bookmarks.length; i++) {
+            if (val.bookmarks[i] === article._id) {
+              article.tags.push({'text':updateKey});
+              $q.all($scope.deleteTag(oldKey)).then(function () {
+                $scope.updateArticle(article);  
+              });
+            }
           }
-        }
+        });
       });
-
     };
 
     $scope.deleteTag = function(tag) {
-
+        var updateCalls = [];
         $scope.getArticles();
 
         angular.forEach(articles, function(article){
             for (var i=0; i<article.tags.length; i++) {
               if (tag === article.tags[i].text) {
                 article.tags.splice(i,1);
-                $scope.updateArticle(article);
+                updateCalls.push($scope.updateArticle(article));
               }
             }
-
-            $scope.findTags();
-
         });
-
+        $q.all(updateCalls).then(function () {
+          $scope.findTags();
+        });
+        return updateCalls;
       };
 	}
 ]);

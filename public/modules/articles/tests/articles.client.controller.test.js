@@ -128,7 +128,9 @@
 			var sampleArticlePutData = new Articles({
 				_id: '525cf20451979dea2c000001',
 				title: 'An Article about MEAN',
-				content: 'MEAN Rocks!'
+				link: 'http://www.google.com',
+				content: 'MEAN Rocks!',
+				tags: [{'text': 'tag-3'}]
 			});
 
 			// Mock article in scope

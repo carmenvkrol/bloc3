@@ -51,23 +51,74 @@
 		}));
 
 		it('$scope.findTags() should find tags', function() {
-			
+			var sampleTag = {
+				'tag-1': {}
+			};
+
+			var sampleTags = [sampleTag];
+
+			$httpBackend.expectGET('/article_tags').respond(sampleTags);
+
+			scope.findTags();
+
+			$httpBackend.flush();
+
+			expect(scope.tags).toEqualData(sampleTags);
 		});
 
 		it('$scope.getArticles() should get articles', function() {
-		
+			var sampleArticle = {
+				title: 'An Article about MEAN',
+				link: 'http://www.google.com',
+				content: 'MEAN rocks!',
+				tags: [{'text': 'tag-3'}]
+			};
+
+			var sampleArticles = [sampleArticle];
+
+			$httpBackend.expectGET('/articles').respond(sampleArticles);
+
+			scope.getArticles();
+
+			$httpBackend.flush();
 		});
 
 		it('$scope.updateArticle(article) should update article', function() {
+			var sampleArticlePutData = {
+				_id: '525cf20451979dea2c000001',
+				title: 'An Article about MEAN',
+				link: 'http://www.google.com',
+				content: 'MEAN Rocks!',
+				tags: [{'text': 'tag-3'}]
+			};
 
+			$httpBackend.expectPUT(/articles\/([0-9a-fA-F]{24})$/).respond();
+
+			scope.updateArticle(sampleArticlePutData);
+
+			$httpBackend.flush();
 		});
 
-		it('$scope.updateTag(key) should update tag', function() {
-	
-		});
+		/*it('$scope.updateTag(key) should update tag', function() {
+			var sampleArticle = {
+				title: 'An Article about MEAN',
+				link: 'http://www.google.com',
+				content: 'MEAN rocks!',
+				tags: [{'text': 'tag-3'}]
+			};
 
-		it('$scope.deleteTag(tag) should delete tag', function() {
+			//article data needs to already be in the route
 
-		});
+			val = {};
+			updateKey = 'tag-4';
+			oldKey = 'tag-3';
+
+
+
+		});*/
+
+		/*it('$scope.deleteTag(tag) should delete tag', function() {
+
+		});*/
 	});
 }());

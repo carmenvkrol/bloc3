@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('articles').filter('articlesByTag', [
-  function() {
+  '_',
+  function(_) {
     return function(articles, selectedTags) {
 
       var filtered = [];

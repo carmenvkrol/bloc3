@@ -42,13 +42,13 @@ exports.update = function(req, res) {
   article = _.extend(article, req.body);
 
   article.save(function(err) {
-    if (err) {
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
+    // if (err) {
+    //   return res.status(400).send({
+    //     message: errorHandler.getErrorMessage(err)
+    //   });
+    // } else {
       res.jsonp(article);
-    }
+    // }
   });
 };
 
