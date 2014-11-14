@@ -52,7 +52,7 @@
 
 		it('$scope.findTags() should find tags', function() {
 			var sampleTag = {
-				'tag-1': {}
+				'tag-1':{}
 			};
 
 			var sampleTags = [sampleTag];

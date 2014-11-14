@@ -1,6 +1,7 @@
 <section data-ng-controller="TagsController">
 	 <div class="page-header">
     <h1>Tags</h1>
+    <h4> {{ message }} </h4>
   </div>
   <div class="col-md-2" col-md-offset="1">
     <a ui-sref="listArticles">
@@ -15,11 +16,11 @@
 
             <input name="oldkey" type="hidden" data-ng-model="oldkey" class="form-control" value="val.original">
             <input name="tag" type="text" data-ng-model="key" id="tag" class="form-control" placeholder="key" required>
-            <div class="form-group has-feedback has-feedback-left" data-ng-click="updateTag(key)">
+            <div class="form-group has-feedback has-feedback-left" data-ng-click="updateTag(key); showMessage('tag updated')">
               <input type="submit" value="" class="form-control btn btn-default btn-sm">
               <i class="glyphicon glyphicon-pencil form-control-feedback"></i>
             </div>
-            <a type="button" class="btn btn-default btn-sm" data-ng-click="deleteTag(key)">
+            <a type="button" class="btn btn-default btn-sm" data-ng-click="deleteTag(key); showMessage('tag deleted')">
               <i class="glyphicon glyphicon-trash"></i>
             </a>
       </li>

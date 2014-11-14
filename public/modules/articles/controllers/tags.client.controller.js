@@ -23,7 +23,6 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
         .get('/articles')
         .success(function(data){
           articles = data;
-          console.log(data);
         })
         .error(function(){
           console.log('error in getArticles');
@@ -43,25 +42,27 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
       var oldKey = this.val.original;
       var promise = $scope.getArticles();
 
-      promise.then(function () {
+      promise.then(function(){
         angular.forEach(articles, function(article){
           for (var i=0; i < val.bookmarks.length; i++) {
             if (val.bookmarks[i] === article._id) {
               article.tags.push({'text':updateKey});
-              $q.all($scope.deleteTag(oldKey)).then(function () {
+              $q.all($scope.deleteTag(oldKey))
+              .then(function () {
                 $scope.updateArticle(article);
               });
             }
           }
         });
-      });
+      });    
+        
     };
 
     $scope.deleteTag = function(tag) {
         var updateCalls = [];
         var promise = $scope.getArticles();
-        
-        promise.then(function (){
+
+        promise.then(function() {
           angular.forEach(articles, function(article){
             for (var i=0; i<article.tags.length; i++) {
               if (tag === article.tags[i].text) {
@@ -73,8 +74,13 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
           $q.all(updateCalls).then(function () {
             $scope.findTags();
           });
-          return updateCalls;
-        });  
+          return updateCalls; 
+        });
+    };
+
+    $scope.showMessage = function(message) {
+      $scope.message = message;
+      return true;
     };
 	}
 ]);
