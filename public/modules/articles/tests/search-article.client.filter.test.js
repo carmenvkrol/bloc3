@@ -12,16 +12,60 @@ describe('Filter: searchArticle', function () {
     searchArticleFilter = $filter('searchArticle');
   }));
 
-  /*
   it ('searchArticle filter should return items if searchText is undefined', function() {
-  
+    expect(searchArticleFilter(
+     [{
+        _id: '525cf20451979dea2c000001',
+        title: 'An Article about MEAN',
+        link: 'http://www.google.com',
+        content: 'MEAN rocks!',
+        tags: [{'text': 'tag-3'}]
+      }],
+      undefined
+    ))
+    .toEqual([{
+        _id: '525cf20451979dea2c000001',
+        title: 'An Article about MEAN',
+        link: 'http://www.google.com',
+        content: 'MEAN rocks!',
+        tags: [{'text': 'tag-3'}]
+    }]);
   });
 
-  it('searchArticle filter should push items from searchText into filtered array, function() {
-
+  it('searchArticle filter should return articles that contain searchText', function() {
+    expect(searchArticleFilter(
+     [{
+        _id: '525cf20451979dea2c000001',
+        title: 'An Article about MEAN',
+        link: 'http://www.google.com',
+        content: 'MEAN rocks!',
+        tags: [{'text': 'tag-3'}]
+      }],
+      'MEA'
+    ))
+    .toEqual([{
+        _id: '525cf20451979dea2c000001',
+        title: 'An Article about MEAN',
+        link: 'http://www.google.com',
+        content: 'MEAN rocks!',
+        tags: [{'text': 'tag-3'}]
+    }]);
   });
 
-  */
+  it('searchArticle filter should not return articles that do not contain searchText', function() {
+    expect(searchArticleFilter(
+     [{
+        _id: '525cf20451979dea2c000001',
+        title: 'An Article about MEAN',
+        link: 'http://www.google.com',
+        content: 'MEAN rocks!',
+        tags: [{'text': 'tag-3'}]
+      }],
+      'test'
+    ))
+    .toEqual([]);
+  });
+
 
   /*it('should output 7 if 7 days away', function() {
     spyOn(Date, 'now').andReturn(1411951480);
