@@ -66,7 +66,9 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
           angular.forEach(articles, function(article){
             for (var i=0; i<article.tags.length; i++) {
               if (tag === article.tags[i].text) {
+                console.log(article.tags[i].text);
                 article.tags.splice(i,1);
+                console.log(article.tags);
                 updateCalls.push($scope.updateArticle(article));
               }
             }
