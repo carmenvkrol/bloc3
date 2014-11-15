@@ -46,16 +46,17 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
         angular.forEach(articles, function(article){
           for (var i=0; i < val.bookmarks.length; i++) {
             if (val.bookmarks[i] === article._id) {
-              article.tags.push({'text':updateKey});
-              $q.all($scope.deleteTag(oldKey))
-              .then(function () {
+              for (var j=0; j<article.tags.length; j++) {
+                if (article.tags[j].text === oldKey) {
+                  article.tags[j].text = updateKey;
+                }
                 $scope.updateArticle(article);
-              });
+              }
             }
           }
         });
-      });    
-        
+      });
+
     };
 
     $scope.deleteTag = function(tag) {
@@ -66,9 +67,7 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
           angular.forEach(articles, function(article){
             for (var i=0; i<article.tags.length; i++) {
               if (tag === article.tags[i].text) {
-                console.log(article.tags[i].text);
                 article.tags.splice(i,1);
-                console.log(article.tags);
                 updateCalls.push($scope.updateArticle(article));
               }
             }
@@ -76,7 +75,7 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
           $q.all(updateCalls).then(function () {
             $scope.findTags();
           });
-          return updateCalls; 
+          return updateCalls;
         });
     };
 
