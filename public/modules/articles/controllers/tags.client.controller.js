@@ -36,7 +36,6 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
     };
 
     $scope.updateTag = function(key) {
-
       var val = this.val;
       var updateKey = this.key;
       var oldKey = this.val.original;
@@ -56,7 +55,6 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
           }
         });
       });
-
     };
 
     $scope.deleteTag = function(tag) {
@@ -75,7 +73,6 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
           $q.all(updateCalls).then(function () {
             $scope.findTags();
           });
-          return updateCalls;
         });
     };
 
