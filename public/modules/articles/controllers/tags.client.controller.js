@@ -3,7 +3,7 @@
 angular.module('articles').controller('TagsController', ['$http', '$scope', '$stateParams', '$location', '$timeout', '$resource', '$q', 'Authentication', 'Articles',
 	function($http, $scope, $stateParams, $location, $timeout, $resource, $q, Authentication, Articles) {
 
-    var articles = [];
+    $scope.articles = [];
 
     //MAKE THIS INTO SERVICE IF KEEP USING
     $scope.findTags = function() {
@@ -22,7 +22,7 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
       return $http
         .get('/articles')
         .success(function(data){
-          articles = data;
+          $scope.articles = data;
         })
         .error(function(){
           console.log('error in getArticles');
@@ -31,7 +31,7 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
 
     $scope.updateArticle = function(article) {
       return $http.put('/articles/' + article._id, article).success(function(article){
-        article;
+        $scope.article = article;
       });
     };
 
@@ -43,7 +43,7 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
       var promise = $scope.getArticles();
 
       promise.then(function(){
-        angular.forEach(articles, function(article){
+        angular.forEach($scope.articles, function(article){
           for (var i=0; i < val.bookmarks.length; i++) {
             if (val.bookmarks[i] === article._id) {
               for (var j=0; j<article.tags.length; j++) {
@@ -64,7 +64,7 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
         var promise = $scope.getArticles();
 
         promise.then(function() {
-          angular.forEach(articles, function(article){
+          angular.forEach($scope.articles, function(article){
             for (var i=0; i<article.tags.length; i++) {
               if (tag === article.tags[i].text) {
                 article.tags.splice(i,1);

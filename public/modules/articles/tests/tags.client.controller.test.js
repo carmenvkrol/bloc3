@@ -67,6 +67,8 @@
 		});
 
 		it('$scope.getArticles() should get articles', function() {
+			var articles = [];
+
 			var sampleArticle = {
 				title: 'An Article about MEAN',
 				link: 'http://www.google.com',
@@ -81,22 +83,26 @@
 			scope.getArticles();
 
 			$httpBackend.flush();
+
+			expect(scope.articles).toEqualData(sampleArticles);
 		});
 
 		it('$scope.updateArticle(article) should update article', function() {
 			var sampleArticlePutData = {
-				_id: '525cf20451979dea2c000001',
+				_id: '5449706c8d080a0000084e3e',
 				title: 'An Article about MEAN',
 				link: 'http://www.google.com',
 				content: 'MEAN Rocks!',
 				tags: [{'text': 'tag-3'}]
 			};
 
-			$httpBackend.expectPUT(/articles\/([0-9a-fA-F]{24})$/).respond();
+			$httpBackend.expectPUT('/articles/5449706c8d080a0000084e3e').respond(sampleArticlePutData);
 
 			scope.updateArticle(sampleArticlePutData);
 
 			$httpBackend.flush();
+
+			expect(scope.article).toEqualData(sampleArticlePutData);
 		});
 
 		/*it('$scope.updateTag(key) should update tag', function() {
