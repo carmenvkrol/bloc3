@@ -18,7 +18,10 @@ module.exports = function(app) {
 		.delete(users.requiresLogin, articles.hasAuthorization, articles.delete);
 
 	app.route('/article_tags')
-	  .get(articles.tags);
+	  .get(articles.tags)
+    .post(articles.updateTags);
+	app.route('/article_tags/:tag')
+    .delete(articles.deleteTags);
 
 	// Finish by binding the article middleware
 	app.param('articleId', articles.articleByID);

@@ -14,11 +14,12 @@
         <!--<li data-ng-click="findOneTag(tag)"><input type="checkbox" name="tags" ng-model="selectedTags">{{tag}}</li>-->
       <li data-ng-repeat="(key,val) in tags" data-ng-href="articles_tags">
 
-            <input name="oldkey" type="hidden" data-ng-model="oldkey" class="form-control" value="val.original">
             <input name="tag" type="text" data-ng-model="key" id="tag" class="form-control" placeholder="key" required>
-            <div class="form-group has-feedback has-feedback-left" data-ng-click="updateTag(key); showMessage('tag updated')">
-              <input type="submit" value="" class="form-control btn btn-default btn-sm">
-              <i class="glyphicon glyphicon-pencil form-control-feedback"></i>
+            <div class="form-group has-feedback has-feedback-left" data-ng-click="showMessage('tag updated')">
+              <!--<input type="submit" value="" class="form-control btn btn-default btn-sm">-->
+              <a type="button" class="btn btn-default btn-sm" data-ng-click="updateTag({newTag: key, oldTag: val.original}); showMessage('tag deleted')">
+              <i class="glyphicon glyphicon-pencil"></i>
+            </a>
             </div>
             <a type="button" class="btn btn-default btn-sm" data-ng-click="deleteTag(key); showMessage('tag deleted')">
               <i class="glyphicon glyphicon-trash"></i>

@@ -109,42 +109,33 @@ exports.hasAuthorization = function(req, res, next) {
 };
 
 exports.tags = function(req, res) {
-  var rawTags = [];
-  var articleTags = [];
-  var articleID;
-  var completeTags = {};
-  var completeTagsName = [];
-
-  Article.find( { user: req.user.id }).exec(function(err, articles) {
+  var cleanTags = {};
+  Article.aggregate([{$match: {'user':new mongoose.Types.ObjectId(req.user.id)}},{$unwind:'$tags'},{$group:{_id:'$tags.text'}}, {$sort:{_id:1}}]).exec(function(err, tags) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      for (var i = 0; i < articles.length; i++) {
-        articleTags = articles[i].tags;
-        for (var j = 0; j < articleTags.length; j++) {
-          rawTags.push(articleTags[j].text);
+      for (var i = 0; i < tags.length; i++) {
+        cleanTags[tags[i]._id] = {original: tags[i]._id};
       }
-    }
-      var tags = _.uniq(rawTags);
-      for (var k = 0; k < tags.length; k++) {
-        var tag = tags[k];
-        completeTags[tag] = {};
-        completeTags[tag].original = tag;
-        completeTags[tag].bookmarks = [];
-        for (var m = 0; m < articles.length; m++) {
-          articleTags = articles[m].tags;
-          articleID = articles[m]._id;
-          for (var n = 0; n < articleTags.length; n++) {
-            if (tag === articleTags[n].text) {
-              completeTags[tag].bookmarks.push(articleID);
-            }
-          }
-        }
-      }
-      res.jsonp(completeTags);
+      res.jsonp(cleanTags);
     }
   });
 
+};
+
+exports.updateTags = function (req, res) {
+  var newTag = req.body.newTag;
+  var oldTag = req.body.oldTag;
+  console.log(req.body);
+  Article.update({'tags.text': oldTag},{$set:{'tags.$.text': newTag}},{multi:true}, function (err, results){
+    exports.tags(req, res);
+  });
+};
+
+exports.deleteTags = function (req,res) {
+  Article.update({'tags.text': req.params.tag},{$pull: {'tags': {text: req.params.tag}}}, {multi: true}, function (err, results) {
+    exports.tags(req, res);
+  });
 };

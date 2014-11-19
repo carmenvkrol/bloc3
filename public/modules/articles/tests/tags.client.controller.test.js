@@ -123,8 +123,33 @@
 
 		});*/
 
-		/*it('$scope.deleteTag(tag) should delete tag', function() {
+		it('$scope.deleteTag(tag) should delete tag', function() {
+			var updateCalls = [];
 
-		});*/
+			var article = {
+				title: 'An Article about MEAN',
+				link: 'http://www.google.com',
+				content: 'MEAN rocks!',
+				tags: [{'text': 'tag-3'}]
+			};
+
+			var articles = [article];
+
+			scope.deleteTag('tag-3');
+
+			expect(updateCalls).toEqual([{
+				title: 'An Article about MEAN',
+				link: 'http://www.google.com',
+				content: 'MEAN rocks!',
+				tags: []
+			}]);
+
+		});
+
+		it('$scope.showMessage(message) should set $scope.message to mesasge and return true', function(){
+			scope.showMessage('test');
+			expect(scope.message).toEqual('test');
+			expect(scope.showMessage('test')).toBe(true);
+		});
 	});
 }());
