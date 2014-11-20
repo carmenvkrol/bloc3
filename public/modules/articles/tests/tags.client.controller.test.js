@@ -87,62 +87,44 @@
 			expect(scope.articles).toEqualData(sampleArticles);
 		});
 
-		it('$scope.updateArticle(article) should update article', function() {
-			var sampleArticlePutData = {
-				_id: '5449706c8d080a0000084e3e',
-				title: 'An Article about MEAN',
-				link: 'http://www.google.com',
-				content: 'MEAN Rocks!',
-				tags: [{'text': 'tag-3'}]
+		it('$scope.updateTag(theTag) should update tag', function() {
+			var sampleTagDeleteData = {
+				'tag-1': {},
+				'tag-2': {},
+				'tag-3': {}
 			};
 
-			$httpBackend.expectPUT('/articles/5449706c8d080a0000084e3e').respond(sampleArticlePutData);
+			$httpBackend.expectPOST('/article_tags', 'tag-3').respond(sampleTagDeleteData);			
 
-			scope.updateArticle(sampleArticlePutData);
+			scope.updateTag('tag-3');
 
 			$httpBackend.flush();
 
-			expect(scope.article).toEqualData(sampleArticlePutData);
+			expect(scope.tags).toEqualData({
+				'tag-1': {},
+				'tag-2': {},
+				'tag-3': {}
+			});
+
 		});
 
-		/*it('$scope.updateTag(key) should update tag', function() {
-			var sampleArticle = {
-				title: 'An Article about MEAN',
-				link: 'http://www.google.com',
-				content: 'MEAN rocks!',
-				tags: [{'text': 'tag-3'}]
-			};
-
-			//article data needs to already be in the route
-
-			val = {};
-			updateKey = 'tag-4';
-			oldKey = 'tag-3';
-
-
-
-		});*/
-
 		it('$scope.deleteTag(tag) should delete tag', function() {
-			var updateCalls = [];
 
-			var article = {
-				title: 'An Article about MEAN',
-				link: 'http://www.google.com',
-				content: 'MEAN rocks!',
-				tags: [{'text': 'tag-3'}]
+			var sampleTagDeleteData = {
+				'tag-1': {},
+				'tag-2': {}
 			};
 
-			var articles = [article];
+			$httpBackend.expectDELETE('/article_tags/tag-3').respond(sampleTagDeleteData);			
 
 			scope.deleteTag('tag-3');
 
-			expect(updateCalls).toEqual([{
-				title: 'An Article about MEAN',
-				link: 'http://www.google.com',
-				content: 'MEAN rocks!',
-				tags: []
-			}]);
+			$httpBackend.flush();
+
+			expect(scope.tags).toEqualData({
+				'tag-1': {},
+				'tag-2': {}
+			});
 
 		});
 
