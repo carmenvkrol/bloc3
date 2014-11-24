@@ -1,6 +1,6 @@
 'use strict';
 
-mongoose.connect(process.env.NODE_ENV === 'production' ? MONGOHQ_URL : MONGOLOCAL_URL);
+var process.env.NODE_ENV === 'production' ? MONGOHQ_URL : MONGOLOCAL_URL);
 
 var process.env.MONGOHQ_URL="mongodb://"+process.env.MONGOHQ_UN+":"+process.env.MONGOHQ_PW+"@dogen.mongohq.com:10026/app31834364";
 
