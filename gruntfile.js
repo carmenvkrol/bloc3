@@ -84,14 +84,14 @@ module.exports = function(grunt) {
         				'public/modules/core/css/core.less',
         				'public/modules/users/css/users.less'],
         tasks: ['recess:dist']
-      }
-			/*clientCSS: {
+      },
+			clientCSS: {
 				files: watchFiles.clientCSS,
 				tasks: ['csslint'],
 				options: {
 					livereload: true
 				}
-			}*/
+			}
 		},
 		jshint: {
 			all: {
@@ -101,14 +101,14 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		/*csslint: {
+		csslint: {
 			options: {
 				csslintrc: '.csslintrc',
 			},
 			all: {
 				src: watchFiles.clientCSS
 			}
-		},*/
+		},
 		uglify: {
 			production: {
 				options: {
@@ -119,13 +119,13 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		/*cssmin: {
+		cssmin: {
 			combine: {
 				files: {
-					'public/dist/application.min.css': '<%= applicationCSSFiles %>'
+					'public/dist/application.min.css': watchFiles.clientCSS
 				}
 			}
-		},*/
+		},
 		nodemon: {
 			dev: {
 				script: 'server.js',
