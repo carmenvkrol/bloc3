@@ -1,12 +1,4 @@
 'use strict';
-angular.module(ApplicationConfiguration.applicationModuleName, ApplicationConfiguration.applicationModuleVendorDependencies), angular.module(ApplicationConfiguration.applicationModuleName).config([
-  '$locationProvider',
-  function ($locationProvider) {
-    $locationProvider.hashPrefix('!');
-  }
-]), angular.element(document).ready(function () {
-  '#_=_' === window.location.hash && (window.location.hash = '#!'), angular.bootstrap(document, [ApplicationConfiguration.applicationModuleName]);
-});
 var ApplicationConfiguration = function () {
     var applicationModuleName = 'bloc3', applicationModuleVendorDependencies = [
         'ngResource',
@@ -27,6 +19,14 @@ var ApplicationConfiguration = function () {
       registerModule: registerModule
     };
   }();
+angular.module(ApplicationConfiguration.applicationModuleName, ApplicationConfiguration.applicationModuleVendorDependencies), angular.module(ApplicationConfiguration.applicationModuleName).config([
+  '$locationProvider',
+  function ($locationProvider) {
+    $locationProvider.hashPrefix('!');
+  }
+]), angular.element(document).ready(function () {
+  '#_=_' === window.location.hash && (window.location.hash = '#!'), angular.bootstrap(document, [ApplicationConfiguration.applicationModuleName]);
+});
 ApplicationConfiguration.registerModule('articles'), angular.module('articles').run([
   'Menus',
   function (Menus) {
