@@ -105,8 +105,7 @@ angular.module(ApplicationConfiguration.applicationModuleName, ApplicationConfig
     }, $scope.selection = [], $scope.toggleSelection = function (tag) {
       var idx = $scope.selection.indexOf(tag);
       idx > -1 ? $scope.selection.splice(idx, 1) : $scope.selection.push(tag);
-    };
-    $resource('/article_tags');
+    }, $resource('/article_tags');
   }
 ]), angular.module('articles').controller('TagsController', [
   '$http',
