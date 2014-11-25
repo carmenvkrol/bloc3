@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 		serverViews: ['app/views/**/*.*'], 
 		serverJS: ['gruntfile.js', 'server.js', 'config/**/*.js', 'app/**/*.js'],
 		clientViews: ['public/modules/**/views/**/*.html'],
-		clientJS: ['public/*.js', 'public/dist/*.js', 'public/modules/**/*.js'],
+		clientJS: ['public/js/*.js', 'public/modules/**/*.js'],
 		clientCSS: ['public/modules/**/*.css'],
 		mochaTests: ['app/tests/**/*.js']
 	};
@@ -152,7 +152,7 @@ module.exports = function(grunt) {
         ngmin: {
             production: {
                 files: {
-                    'public/dist/application.js': watchFiles.clientJS
+                    'public/dist/application.js': '<%= applicationJavaScriptFiles %>'
                 }
             }
         },
