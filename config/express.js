@@ -69,6 +69,7 @@ module.exports = function(db) {
 		// Disable views cache
 		app.set('view cache', false);
 	} else if (process.env.NODE_ENV === 'production') {
+		app.use(morgan('common'));
 		app.locals.cache = 'memory';
 	}
 
