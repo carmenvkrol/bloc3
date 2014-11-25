@@ -109,7 +109,7 @@ module.exports = function(grunt) {
 				src: watchFiles.clientCSS
 			}
 		},
-		uglify: {
+		/*uglify: {
 			production: {
 				options: {
 					mangle: false
@@ -118,7 +118,7 @@ module.exports = function(grunt) {
 					'public/dist/application.min.js': 'public/dist/application.js'
 				}
 			}
-		},
+		},*/
 		cssmin: {
 			combine: {
 				files: {
@@ -207,7 +207,7 @@ module.exports = function(grunt) {
 	//grunt.registerTask('lint', ['jshint', 'csslint']);
 
 	// Build task(s).
-	grunt.registerTask('build', ['less', 'loadConfig', 'ngmin', 'uglify', 'cssmin']);
+	grunt.registerTask('build', ['less', 'loadConfig', 'ngmin', 'cssmin']);
 
 	// Test task.
 	grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit', 'less']);
