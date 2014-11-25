@@ -152,7 +152,7 @@ module.exports = function(grunt) {
         ngmin: {
             production: {
                 files: {
-                    'public/dist/application.js': '<%= applicationJavaScriptFiles %>'
+                    'public/dist/application.js': watchFiles.clientJS
                 }
             }
         },
