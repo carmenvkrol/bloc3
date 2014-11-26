@@ -1,58 +1,43 @@
 'use strict';
 
-angular.module('articles').controller('TagsController', ['$http', '$scope', '$stateParams', '$location', '$timeout', '$resource', '$q', 'Authentication', 'Articles',
-	function($http, $scope, $stateParams, $location, $timeout, $resource, $q, Authentication, Articles) {
+var TagsController = (function () {
+  function TagsController(TagService) {
+    this.TagService = TagService;
+    this.articles = [];
+    this.tags = {};
+    this.message = '';
+  }
 
-    $scope.articles = [];
-    $scope.tags = {};
+  TagsController.prototype.findTags = function() {
+    var vm = this;
+    this.TagService.findTags().then(function (response) {
+      vm.tags = response.data;
+    });
+  };
 
-    //MAKE THIS INTO SERVICE IF KEEP USING
-    $scope.findTags = function() {
-       $http
-          .get('/article_tags')
-          .success(function(data){
-            console.log(data);
-              $scope.tags = data;
-           })
-           .error(function(){
-           });
+  TagsController.prototype.updateTag = function(theTag, message) {
+    var vm = this;
+    this.TagService.updateTag(theTag).then(function (response) {
+      vm.tags = response.data;
+      vm.message = message;
+    });
+  };
 
-    };
+  TagsController.prototype.deleteTag = function(theTag, message) {
+    var vm = this;
+    this.TagService.deleteTag(theTag).then(function (response) {
+      vm.tags = response.data;
+      vm.message = message;
+    });
+  };
 
-    $scope.getArticles = function() {
-      return $http
-        .get('/articles')
-        .success(function(data){
-          $scope.articles = data;
-        })
-        .error(function(){
-          console.log('error in getArticles');
-        });
-    };
+  TagsController.prototype.displayMessage = function() {
+    return this.message.length > 0;
+  };
 
-    $scope.updateTag = function(theTag) {
-       $http
-          .post('/article_tags', theTag)
-          .success(function(data){
-            $scope.tags = data;
-           })
-           .error(function(){
-           });
-    };
+  TagsController.$inject = ['TagService'];
 
-    $scope.deleteTag = function(theTag) {
-       $http
-          .delete('/article_tags/' + theTag)
-          .success(function(data){
-            $scope.tags = data;
-           })
-           .error(function(){
-           });
-    };
+  angular.module('articles').controller('TagsController', TagsController);
 
-    $scope.showMessage = function(message) {
-      $scope.message = message;
-      return true;
-    };
-	}
-]);
+  return TagsController;
+})();
