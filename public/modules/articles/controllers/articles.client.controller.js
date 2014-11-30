@@ -70,7 +70,6 @@ angular.module('articles').controller('ArticlesController', ['$http', '$scope', 
           .get('/article_tags')
           .success(function(data){
               rawTags = data;
-              console.log(rawTags);
               for (var prop in rawTags) {
                 $scope.tags.push(prop);
               }
