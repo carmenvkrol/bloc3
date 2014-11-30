@@ -1,7 +1,7 @@
-<section>
+<section data-ng-controller="TagsController">
 	 <div class="page-header">
     <h1>Tags</h1>
-    <h6> {{ vm.message }} </h6>
+    <h6> {{ message }} </h6>
   </div>
   <div class="col-md-2" col-md-offset="1">
     <a ui-sref="listArticles">
@@ -10,17 +10,18 @@
     </a>
   </div>
   <div class="col-md-9">
-   <ul class="tag-edit-remove-list" data-ng-init="vm.tagService('findTags')">
+   <ul class="tag-edit-remove-list" data-ng-init="findTags()">
         <!--<li data-ng-click="findOneTag(tag)"><input type="checkbox" name="tags" ng-model="selectedTags">{{tag}}</li>-->
-      <li data-ng-repeat="(key,val) in vm.tags" data-ng-href="articles_tags">
+      <li data-ng-repeat="(key,val) in tags" data-ng-href="articles_tags">
 
             <input name="tag" type="text" data-ng-model="key" id="tag" class="form-control" placeholder="key" required>
-            <div class="form-group has-feedback has-feedback-left">
-              <a type="button" class="btn btn-default btn-sm" data-ng-click="vm.tagService('updateTag', {newTag: key, oldTag: val.original}, 'tag updated');">
+            <div class="form-group has-feedback has-feedback-left" data-ng-click="showMessage('tag updated')">
+              <!--<input type="submit" value="" class="form-control btn btn-default btn-sm">-->
+              <a type="button" class="btn btn-default btn-sm" data-ng-click="updateTag({newTag: key, oldTag: val.original}); showMessage('tag deleted')">
               <i class="glyphicon glyphicon-pencil"></i>
             </a>
             </div>
-            <a type="button" class="btn btn-default btn-sm" data-ng-click="vm.tagService('deleteTag', key, 'tag deleted')">
+            <a type="button" class="btn btn-default btn-sm" data-ng-click="deleteTag(key); showMessage('tag deleted')">
               <i class="glyphicon glyphicon-trash"></i>
             </a>
       </li>

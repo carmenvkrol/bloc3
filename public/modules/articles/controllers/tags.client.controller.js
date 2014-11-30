@@ -1,25 +1,58 @@
 'use strict';
 
-var TagsController = (function () {
-  function TagsController(TagService) {
-    this.TagService = TagService;
-    this.articles = [];
-    this.tags = {};
-    this.message = '';
-  }
+angular.module('articles').controller('TagsController', ['$http', '$scope', '$stateParams', '$location', '$timeout', '$resource', '$q', 'Authentication', 'Articles',
+	function($http, $scope, $stateParams, $location, $timeout, $resource, $q, Authentication, Articles) {
 
-  TagsController.prototype.tagService = function (operation, args, message) {
-    var vm = this;
+    $scope.articles = [];
+    $scope.tags = {};
 
-    this.TagService[operation](args).then(function (response) {
-      vm.tags = response.data;
-      vm.message = message;
-    });
-  };
+    //MAKE THIS INTO SERVICE IF KEEP USING
+    $scope.findTags = function() {
+       $http
+          .get('/article_tags')
+          .success(function(data){
+            console.log(data);
+              $scope.tags = data;
+           })
+           .error(function(){
+           });
 
-  TagsController.$inject = ['TagService'];
+    };
 
-  angular.module('articles').controller('TagsController', TagsController);
+    $scope.getArticles = function() {
+      return $http
+        .get('/articles')
+        .success(function(data){
+          $scope.articles = data;
+        })
+        .error(function(){
+          console.log('error in getArticles');
+        });
+    };
 
-  return TagsController;
-})();
+    $scope.updateTag = function(theTag) {
+       $http
+          .post('/article_tags', theTag)
+          .success(function(data){
+            $scope.tags = data;
+           })
+           .error(function(){
+           });
+    };
+
+    $scope.deleteTag = function(theTag) {
+       $http
+          .delete('/article_tags/' + theTag)
+          .success(function(data){
+            $scope.tags = data;
+           })
+           .error(function(){
+           });
+    };
+
+    $scope.showMessage = function(message) {
+      $scope.message = message;
+      return true;
+    };
+	}
+]);
