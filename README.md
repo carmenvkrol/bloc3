@@ -5,9 +5,6 @@ Single-page app built with [AngularJS](https://angularjs.org/), [Express](http:/
 
 Users can create an account in which they create and edit bookmarks.  The bookmarks can include a link, comments, and tags.  Users can search bookmarks and sort them by tags.  The tags can be edited and deleted.
 
-
-Demo
-------------
 Here's the [demo] (https://listy-cvk.herokuapp.com/#!/).
 
 
@@ -16,13 +13,19 @@ Configuration
 Configuring this project should be consistent across Mac (local) and Vagrant.  You should already have [Node](http://nodejs.org) and [MongoDB](http://www.mongodb.org/) installed before cloning.
 
 Start by cloning the repository
-`$ git clone https://github.com/carmenvkrol/bloc3.git`
+```
+$ git clone https://github.com/carmenvkrol/bloc3.git
+```
 
 This app uses [Grunt](http://gruntjs.com/) to run tasks.  Install the Grunt Command Line Interface (`grunt-cli`) locally on your machine.
-`$ npm install -g grunt-cli`
+```
+$ npm install -g grunt-cli
+```
 
 Once that's complete, install the remaining dependencies by running
-`$ npm install`
+```
+$ npm install
+```
 
 
 
@@ -30,9 +33,11 @@ Running the Application
 ------------
 Run the application using
 
-`$ grunt`
+```
+$ grunt
+```
 
-The application runs on port 3000 (configured in /config/env/all.js).  To change the port, modify the number highlighted below
+The application runs on port 3000 (configured in [/config/env/all.js](https://github.com/carmenvkrol/bloc3/blob/master/config/env/all.js)).  To change the port, modify the number highlighted below
 ```
 'use strict';
 
@@ -55,11 +60,11 @@ bloc3/
  |__app/ #server-side files that handle functionality of bookmarks, tags, and user authentication
  |__config/ #server-side files that handle configuration of app, including local port
  |__node_modules/
- |__public/ #client-side files
+ |__public/ #client-side files in AngularJS and LESS
  |  |__dist/ #production mode files
  |  |__img/
  |  |__lib/
- |  |__modules/ #development mode files; AngularJS and LESS
+ |  |__modules/ #development mode files
  |  |  |__articles/ #bookmarks and tags
  |  |  |__core/ #home (landing)
  |  |  |__users/ #sign in and sign up 
@@ -67,7 +72,7 @@ bloc3/
 
 ```
 
-Grunt looks for files using a defined pattern so that it knows what to compile and copy and where to put it. To edit the files that Grunt watches, look at the array of files in the watch task in Gruntfile.js. The default watched files are:
+Grunt looks for files using a defined pattern so that it knows what to compile and copy and where to put it. To edit the files that Grunt watches, look at the array of files in the watch task in `[Gruntfile.js](https://github.com/carmenvkrol/bloc3/blob/master/gruntfile.js)`. The default watched files are:
 
 ```
 var watchFiles = {
@@ -84,25 +89,25 @@ var watchFiles = {
 
 LESS
 ------------
-This app uses the CSS pre-processor [LESS](http://lesscss.org/) in order to facilitate styling with [Bootstrap](http://getbootstrap.com/css/), which is included.  LESS files can be found in the CSS folders under the articles, core, and users directories - all of which are located in the public directory. (See Directory Structure section above to locate this).  In order for these files to be converted into CSS, and modify styling in the views, save LESS files within these CSS folders.
+This app uses the CSS pre-processor [LESS](http://lesscss.org/) in order to facilitate styling with [Bootstrap](http://getbootstrap.com/css/), which is included.  LESS files can be found in the CSS folders under the articles, core, and users directories - all of which are located in the public directory. (See Directory Structure section above to locate these).  In order for these files to be converted into CSS, and modify styling in the views, save LESS files within these CSS folders.
 
 
 
 Sign Up/Sign In Feature
 ------------
-The client-side files for user authentication, which are used in the /signup and /signin views, is in the users directory within the public directory.  The server-side functionality is in the users files within the app folder.  (See Directory Structure section above to locate this).
+The client-side files for user authentication, which are used in the `[/signup] (https://github.com/carmenvkrol/bloc3/blob/master/public/modules/users/views/authentication/signup.client.view.html)` and `[/signin](https://github.com/carmenvkrol/bloc3/blob/master/public/modules/users/views/authentication/signin.client.view.html)` views, is in the users directory within the public directory.  The server-side functionality is in the users files within the app folder.  (See Directory Structure section above to locate these).
 
 
 
 Booksmarks and Tags Features
 ------------
-The client-side functionality for bookmarks and tags, which are used in the /tags and /articles views, can be found in the articles directory within the public directory. The server-side functionality is found in the articles files within the app folder. (See Directory Structure section above to locate this). 
+The client-side functionality for bookmarks and tags, which are used in the `[/tags](https://github.com/carmenvkrol/bloc3/blob/master/public/modules/articles/views/authentication/tags.client.view.html)` and `[/articles](https://github.com/carmenvkrol/bloc3/blob/master/public/modules/users/views/authentication/list-articles.client.view.html)` views, can be found in the articles directory within the public directory. The server-side functionality is found in the articles files within the app folder. (See Directory Structure section above to locate these). 
 
 
 
 Grunt Plugins
 ------------
-A list of the plugins used by Grunt and what they're used for.
+A list of the plugins used by Grunt and what they're used for:
 
 **[Grunt-Cli](https://github.com/gruntjs/grunt-cli)** - provides access to grunt via command line in terminal
 
@@ -140,7 +145,7 @@ A list of the plugins used by Grunt and what they're used for.
 
 Other Packages
 ------------
-A list of other plugins used in this application and their purpose.
+A list of other plugins used in this application and their purpose:
 
 **[Async](https://github.com/caolan/async)** - provides functions for working with asynchronous JavaScript
 
