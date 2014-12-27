@@ -1,7 +1,7 @@
 listy app
 =============
 
-Single-page app built with [AngularJS](https://angularjs.org/), [Express](http://expressjs.com/), [Mongoose](http://mongoosejs.com/), and [Node](http://nodejs.org/) using the [MeanJS Yeoman scaffolding](http://meanjs.org/).
+Single-page app built with [AngularJS](https://angularjs.org/), [Express](http://expressjs.com/), [Mongoose](http://mongoosejs.com/), and [Node.js](http://nodejs.org/) using the [MeanJS Yeoman scaffolding](http://meanjs.org/).
 
 Users can create an account in which they create and edit bookmarks.  The bookmarks can include a link, comments, and tags.  Users can search bookmarks and sort them by tags.  The tags can be edited and deleted.
 
@@ -10,7 +10,7 @@ Here's the [demo] (https://listy-cvk.herokuapp.com/#!/).
 
 Configuration
 ------------
-Configuring this project should be consistent across Mac (local) and Vagrant.  You should already have [Node](http://nodejs.org) and [MongoDB](http://www.mongodb.org/) installed before cloning.
+Configuring this project should be consistent across Mac (local) and Vagrant.  You should already have [Node.js](http://nodejs.org) and [MongoDB](http://www.mongodb.org/) installed before cloning.
 
 Start by cloning the repository
 ```
@@ -72,7 +72,7 @@ bloc3/
 
 ```
 
-Grunt looks for files using a defined pattern so that it knows what to compile and copy and where to put it. To edit the files that Grunt watches, look at the array of files in the watch task in `[Gruntfile.js](https://github.com/carmenvkrol/bloc3/blob/master/gruntfile.js)`. The default watched files are:
+Grunt looks for files using a defined pattern so that it knows what to compile and copy and where to put it. To edit the files that Grunt watches, look at the array of files in the watch task in [Gruntfile.js](https://github.com/carmenvkrol/bloc3/blob/master/gruntfile.js). The default watched files are:
 
 ```
 var watchFiles = {
@@ -95,13 +95,13 @@ This app uses the CSS pre-processor [LESS](http://lesscss.org/) in order to faci
 
 Sign Up/Sign In Feature
 ------------
-The client-side files for user authentication, which are used in the [/signup] (https://github.com/carmenvkrol/bloc3/blob/master/public/modules/users/views/authentication/signup.client.view.html) and [/signin](https://github.com/carmenvkrol/bloc3/blob/master/public/modules/users/views/authentication/signin.client.view.html) views, is in the users directory within the public directory.  The server-side functionality is in the users files within the app folder.  (See Directory Structure section above to locate these).
+The client-side files for user authentication, which are used in the [/signup] (https://github.com/carmenvkrol/bloc3/blob/master/public/modules/users/views/authentication/signup.client.view.html) and [/signin](https://github.com/carmenvkrol/bloc3/blob/master/public/modules/users/views/authentication/signin.client.view.html) views, are in the users directory within the public directory.  The server-side functionality is in the users files within the app folder.  (See Directory Structure section above to locate these).
 
 
 
 Booksmarks and Tags Features
 ------------
-The client-side functionality for bookmarks and tags, which are used in the [/tags](https://github.com/carmenvkrol/bloc3/blob/master/public/modules/articles/views/authentication/tags.client.view.html) and [/articles](https://github.com/carmenvkrol/bloc3/blob/master/public/modules/users/views/authentication/list-articles.client.view.html) views, can be found in the articles directory within the public directory. The server-side functionality is found in the articles files within the app folder. (See Directory Structure section above to locate these). 
+The client-side functionality for bookmarks and tags, which are used in the [/tags](https://github.com/carmenvkrol/bloc3/blob/master/public/modules/articles/views/tags.client.view.html) and [/articles](https://github.com/carmenvkrol/bloc3/blob/master/public/modules/users/views/list-articles.client.view.html) views, can be found in the articles directory within the public directory. The server-side functionality is found in the articles files within the app folder. (See Directory Structure section above to locate these). 
 
 
 
@@ -133,9 +133,9 @@ A list of the plugins used by Grunt and what they're used for:
 
 **[Grunt-Ngmin](https://github.com/btford/grunt-ngmin)** - pre-minifies Angular code
 
-**[Grunt-Node-Inspector](https://www.npmjs.com/package/grunt-node-inspector)** - debugs node.js
+**[Grunt-Node-Inspector](https://www.npmjs.com/package/grunt-node-inspector)** - debugs Node.js
 
-**[Grunt-Nodemon](https://github.com/ChrisWren/grunt-nodemon)** - monitors any changes in node.js and automatically restarts the server
+**[Grunt-Nodemon](https://github.com/ChrisWren/grunt-nodemon)** - monitors any changes in Node.js and automatically restarts the server
 
 **[Grunt-Recess](https://github.com/sindresorhus/grunt-recess)** - lint and minify CSS and LESS using RECESS, which keeps style code clean and manageable
 
@@ -149,7 +149,7 @@ A list of other plugins used in this application and their purpose:
 
 **[Async](https://github.com/caolan/async)** - provides functions for working with asynchronous JavaScript
 
-**[Express](http://expressjs.com/)** - web framework for node.js
+**[Express](http://expressjs.com/)** - web framework for Node.js
 
 **[Express-Session](https://github.com/expressjs/session)** - keeps track of users as they go through the app
 
@@ -175,25 +175,25 @@ A list of other plugins used in this application and their purpose:
 
 **[Karma](https://github.com/karma-runner/karma)** - test runner for JavaScript
 
-**[Karma-Chrome-Launcher](https://github.com/karma-runner/karma-chrome-launcher)** - launches JavaScript code in Chrome browser in order to test with Karma (see above)
+**[Karma-Chrome-Launcher](https://github.com/karma-runner/karma-chrome-launcher)** - launches JavaScript code in Chrome browser in order to test with Karma
 
-**[Karma-Coverage](https://github.com/karma-runner/karma-coverage)** - generates code coverage for Karma (see above)
+**[Karma-Coverage](https://github.com/karma-runner/karma-coverage)** - generates code coverage for Karma
 
-**[Karma-Firefox-Launcher](https://github.com/karma-runner/karma-firefox-launcher)** - launches JavaScript code in Firefox browser in order to test with Karma (see above)
+**[Karma-Firefox-Launcher](https://github.com/karma-runner/karma-firefox-launcher)** - launches JavaScript code in Firefox browser in order to test with Karma
 
 **[Karma-Jasmine](https://github.com/karma-runner/karma-jasmine)** - adapter for [Jasmine testing framework](http://jasmine.github.io/) to be used with Karma
 
 **[Karma-PhantomJS-Launcher](https://github.com/karma-runner/karma-phantomjs-launcher)** - launches JavaScript in [PhantomJS](http://phantomjs.org/), which is a headless WebKit scriptable with a JavaScript API
 
-**[Lodash](https://lodash.com/)** - utility library for JavaScript.  Simplifies writing certain code, such as comparing values in multiple arrays.
+**[Lodash](https://lodash.com/)** - utility library for JavaScript.  Simplifies writing certain code, such as comparing values between multiple arrays.
 
 **[Method-Override](https://github.com/expressjs/method-override)** - allows the use HTTP verbs, such as PUT and DELETE, in places where the client doesn't support it
 
-**[Mongoose](http://mongoosejs.com/)** - MongoDB object modeling for node.js
+**[Mongoose](http://mongoosejs.com/)** - MongoDB object modeling for Node.js
 
 **[Morgan](https://github.com/expressjs/morgan)** - automates logging of requests
 
-**[Nodemailer](https://github.com/andris9/Nodemailer)** - sends emails with NodeJS
+**[Nodemailer](https://github.com/andris9/Nodemailer)** - sends emails with Node.js
 
 **[Passport](http://passportjs.org/)** - authenticates users based on the credentials they provide
 
