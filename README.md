@@ -95,13 +95,13 @@ This app uses the CSS pre-processor [LESS](http://lesscss.org/) in order to faci
 
 Sign Up/Sign In Feature
 ------------
-The client-side files for user authentication, which are used in the `[/signup] (https://github.com/carmenvkrol/bloc3/blob/master/public/modules/users/views/authentication/signup.client.view.html)` and `[/signin](https://github.com/carmenvkrol/bloc3/blob/master/public/modules/users/views/authentication/signin.client.view.html)` views, is in the users directory within the public directory.  The server-side functionality is in the users files within the app folder.  (See Directory Structure section above to locate these).
+The client-side files for user authentication, which are used in the [/signup] (https://github.com/carmenvkrol/bloc3/blob/master/public/modules/users/views/authentication/signup.client.view.html) and [/signin](https://github.com/carmenvkrol/bloc3/blob/master/public/modules/users/views/authentication/signin.client.view.html) views, is in the users directory within the public directory.  The server-side functionality is in the users files within the app folder.  (See Directory Structure section above to locate these).
 
 
 
 Booksmarks and Tags Features
 ------------
-The client-side functionality for bookmarks and tags, which are used in the `[/tags](https://github.com/carmenvkrol/bloc3/blob/master/public/modules/articles/views/authentication/tags.client.view.html)` and `[/articles](https://github.com/carmenvkrol/bloc3/blob/master/public/modules/users/views/authentication/list-articles.client.view.html)` views, can be found in the articles directory within the public directory. The server-side functionality is found in the articles files within the app folder. (See Directory Structure section above to locate these). 
+The client-side functionality for bookmarks and tags, which are used in the [/tags](https://github.com/carmenvkrol/bloc3/blob/master/public/modules/articles/views/authentication/tags.client.view.html) and [/articles](https://github.com/carmenvkrol/bloc3/blob/master/public/modules/users/views/authentication/list-articles.client.view.html) views, can be found in the articles directory within the public directory. The server-side functionality is found in the articles files within the app folder. (See Directory Structure section above to locate these). 
 
 
 
