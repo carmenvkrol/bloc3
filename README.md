@@ -31,11 +31,20 @@ $ npm install
 
 Running the Application
 ------------
-Run the application using
+Two tabs must be open in the terminal in order to run the application.
+
+In one tab, run
+
+```
+$ mongod
+```
+
+In the other, run
 
 ```
 $ grunt
 ```
+
 
 The application runs on port 3000 (configured in [/config/env/all.js](https://github.com/carmenvkrol/bloc3/blob/master/config/env/all.js)).  To change the port, modify the number highlighted below
 ```
