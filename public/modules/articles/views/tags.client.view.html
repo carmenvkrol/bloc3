@@ -1,31 +1,41 @@
 <section data-ng-controller="TagsController">
-	 <div class="page-header">
-    <h1>Tags</h1>
-    <h6> {{ message }} </h6>
+  
+  <div class="row">
+    <div class="col-md-2" col-md-offset="1">
+    </div>
+    <div class="col-md-9">
+      <div class="page-header">
+        <h1>Tags</h1>
+        <h6> {{ message }} </h6>
+      </div>
+    </div>
   </div>
-  <div class="col-md-2" col-md-offset="1">
-    <a ui-sref="listArticles">
-      <i class="glyphicon glyphicon-arrow-right"></i>
-      <span class="bookmark-link">Bookmarks</span>
-    </a>
-  </div>
-  <div class="col-md-9">
-   <ul class="tag-edit-remove-list" data-ng-init="findTags()">
-        <!--<li data-ng-click="findOneTag(tag)"><input type="checkbox" name="tags" ng-model="selectedTags">{{tag}}</li>-->
-      <li data-ng-repeat="(key,val) in tags" data-ng-href="articles_tags">
 
-            <input name="tag" type="text" data-ng-model="key" id="tag" class="form-control" placeholder="key" required>
-            <div class="form-group has-feedback has-feedback-left" data-ng-click="showMessage('tag updated')">
-              <!--<input type="submit" value="" class="form-control btn btn-default btn-sm">-->
-              <a type="button" class="btn btn-default btn-sm" data-ng-click="updateTag({newTag: key, oldTag: val.original}); showMessage('tag updated')">
-              <i class="glyphicon glyphicon-pencil"></i>
-            </a>
-            </div>
-            <a type="button" class="btn btn-default btn-sm" data-ng-click="deleteTag(key); showMessage('tag deleted')">
-              <i class="glyphicon glyphicon-trash"></i>
-            </a>
-      </li>
-    </ul>
+  <div class="row">
+    <div class="col-md-2" col-md-offset="1">
+      <a ui-sref="listArticles">
+        <i class="glyphicon glyphicon-arrow-right"></i>
+        <span class="bookmark-link">Bookmarks</span>
+      </a>
+    </div>
+    <div class="col-md-9">
+     <ul class="tag-edit-remove-list" data-ng-init="findTags()">
+          <!--<li data-ng-click="findOneTag(tag)"><input type="checkbox" name="tags" ng-model="selectedTags">{{tag}}</li>-->
+        <li data-ng-repeat="(key,val) in tags" data-ng-href="articles_tags">
+
+              <input name="tag" type="text" data-ng-model="key" id="tag" class="form-control" placeholder="key" required>
+              <div class="form-group has-feedback has-feedback-left" data-ng-click="showMessage('tag updated')">
+                <!--<input type="submit" value="" class="form-control btn btn-default btn-sm">-->
+                <a type="button" class="btn btn-default btn-sm" data-ng-click="updateTag({newTag: key, oldTag: val.original}); showMessage('tag updated')">
+                <i class="glyphicon glyphicon-pencil"></i>
+              </a>
+              </div>
+              <a type="button" class="btn btn-default btn-sm" data-ng-click="deleteTag(key); showMessage('tag deleted')">
+                <i class="glyphicon glyphicon-trash"></i>
+              </a>
+        </li>
+      </ul>
+    </div>
   </div>
 
 </section>

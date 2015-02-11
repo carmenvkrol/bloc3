@@ -1,1 +1,256 @@
-a:hover{text-decoration:none}.tag-search-list{list-style:none;margin-bottom:40px;padding-left:0}.tag-search-list li{margin-top:10px;margin-bottom:10px;margin-right:auto;margin-left:auto;background-color:#67bdee;border-radius:10px;width:50%}.tag-search-list li .tag-search-list-item{display:inline-block;width:80%;padding-left:10px;text-align:left;font-size:24px;color:white}.tag-search-list li input{text-align:right}.tag-search-list li input:hover{cursor:pointer}.page-header{border-bottom:none}.glyphicon-plus{margin-bottom:20px;font-size:20px;color:#67bdee}.glyphicon-plus:hover{color:#b4a4cb}.glyphicon-arrow-right{margin-bottom:20px;font-size:20px;color:#67bdee}.glyphicon-arrow-right:hover{color:#b4a4cb}.bookmark-link{vertical-align:top;margin-left:5px;font-size:20px;color:#67bdee}.bookmark-link:hover{color:#b4a4cb}h2{margin-bottom:20px;text-align:center;font-family:'Permanent Marker',cursive;color:#67bdee}input.search{margin-bottom:20px;border:2px solid #67bdee;border-radius:4px;padding-top:5px;padding-left:10px;height:48px;width:30%;font-size:18px}.list-group-item{border:3px solid #faf283;height:200px}.list-group-item .bookmark-details{float:left;display:inline-block}.list-group-item .bookmark-details a{margin-top:10px}.list-group-item .bookmark-details p{margin-top:10px;color:black}.list-group-item .bookmark-details .tags{border:none;box-shadow:none}.list-group-item .list-group-item-heading{font-size:24px}.list-group-item .list-group-item-text{margin-bottom:15px;font-size:18px;color:#73797e}.list-group-item .tags input{display:none}.list-group-item .tag-list{padding-left:0;list-style:none}.list-group-item .tag-list li.tag-item{display:inline;margin-right:10px;border-radius:5px;border:none;height:auto;width:75px;padding:3px 10px;background-color:#67bdee;font-size:18px;text-align:center;color:white}.list-group-item .tag-list li.tag-item a{display:none}.list-group-item .edit-remove-buttons{float:right;display:inline-block}.list-group-item .edit-remove-buttons a.btn.btn-default.btn-sm{background-color:#faf283;background-image:none}.list-group-item .edit-remove-buttons a.btn.btn-default.btn-sm:hover{background-color:#67bdee}form{margin-left:auto;margin-right:auto;width:60%}form input.form-control{margin-left:auto;margin-right:auto;padding-top:12px;font-size:20px;height:48px}form .tag-list{margin-left:-15px;display:inline;padding-left:0;list-style:none}form .tag-list li.tag-item{display:inline;margin-right:10px;border-radius:5px;height:auto;padding:5px 10px;background-color:#67bdee;font-size:18px;color:white}form .tag-list li.tag-item a{cursor:pointer;margin-left:5px;color:white}form input.input{border-radius:4px;border:1px solid #ccc;padding-top:5px;padding-left:10px;height:40px;width:150px !important;font-size:16px}form .host input.input{margin-left:0;height:40px}form input.btn.btn-default.btn-new-task{margin-top:15px;background-image:none;background-color:#faf283;border:none;text-shadow:none;font-family:'Hind',sans-serif;font-size:18px}form input.btn.btn-default.btn-new-task:hover{background-color:#67bdee}form input.btn.btn-default.btn-update-task{margin-top:30px;background-image:none;background-color:#faf283;border:none;text-shadow:none;font-family:'Hind',sans-serif;font-size:18px}form input.btn.btn-default.btn-update-task:hover{background-color:#67bdee}form .form-group{margin-left:auto;margin-right:auto}
+/* LIST PAGE */
+
+a:hover {
+  text-decoration: none;
+}
+
+.tag-search-list {
+  padding-left: 0;
+  margin-bottom: 40px;
+  list-style: none;
+}
+
+.tag-search-list li {
+  width: 50%;
+  margin-top: 10px;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-left: auto;
+  background-color: #67bdee;
+  border-radius: 10px;
+}
+
+.tag-search-list li .tag-search-list-item {
+  display: inline-block;
+  width: 80%;
+  padding-left: 10px;
+  font-size: 24px;
+  color: white;
+  text-align: left;
+  word-break: break-word;
+}
+
+.tag-search-list li input {
+  text-align: right;
+}
+
+.tag-search-list li input:hover {
+  cursor: pointer;
+}
+
+.page-header {
+  border-bottom: none;
+}
+
+.glyphicon-plus {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #67bdee;
+}
+
+.glyphicon-plus:hover {
+  color: #b4a4cb;
+}
+
+.glyphicon-arrow-right {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #67bdee;
+}
+
+.glyphicon-arrow-right:hover {
+  color: #b4a4cb;
+}
+
+.bookmark-link {
+  margin-left: 5px;
+  font-size: 20px;
+  color: #67bdee;
+  vertical-align: top;
+}
+
+.bookmark-link:hover {
+  color: #b4a4cb;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-family: 'Permanent Marker', cursive;
+  color: #67bdee;
+  text-align: center;
+}
+
+input.search {
+  width: 30%;
+  height: 48px;
+  padding-top: 5px;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  border: 2px solid #67bdee;
+  border-radius: 4px;
+}
+
+.list-group-item {
+  height: 200px;
+  overflow: hidden;
+  border: 3px solid #faf283;
+}
+
+.list-group-item .bookmark-details {
+  display: inline-block;
+  float: left;
+}
+
+.list-group-item .bookmark-details a {
+  margin-top: 10px;
+}
+
+.list-group-item .bookmark-details p {
+  margin-top: 10px;
+  color: black;
+}
+
+.list-group-item .bookmark-details .tags {
+  border: none;
+  box-shadow: none;
+}
+
+.list-group-item .list-group-item-heading {
+  font-size: 24px;
+}
+
+.list-group-item .list-group-item-text {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #73797e;
+}
+
+.list-group-item .tags input {
+  display: none;
+}
+
+.list-group-item .tag-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-group-item .tag-list li.tag-item {
+  display: inline;
+  width: 75px;
+  height: auto;
+  padding: 3px 10px;
+  margin-right: 10px;
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  background-color: #67bdee;
+  border: none;
+  border-radius: 5px;
+}
+
+.list-group-item .tag-list li.tag-item a {
+  display: none;
+}
+
+.list-group-item .edit-remove-buttons {
+  display: inline-block;
+  float: right;
+}
+
+.list-group-item .edit-remove-buttons a.btn.btn-default.btn-sm {
+  background-color: #faf283;
+  background-image: none;
+}
+
+.list-group-item .edit-remove-buttons a.btn.btn-default.btn-sm:hover {
+  background-color: #67bdee;
+}
+
+/* CREATE ARTICLE PAGE */
+
+form {
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+form input.form-control {
+  height: 48px;
+  padding-top: 12px;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 20px;
+}
+
+form .tag-list {
+  display: inline;
+  padding-left: 0;
+  margin-left: -15px;
+  list-style: none;
+}
+
+form .tag-list li.tag-item {
+  display: inline;
+  height: auto;
+  padding: 5px 10px;
+  margin-right: 10px;
+  font-size: 18px;
+  color: white;
+  background-color: #67bdee;
+  border-radius: 5px;
+}
+
+form .tag-list li.tag-item a {
+  margin-left: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+form input.input {
+  width: 150px !important;
+  height: 40px;
+  padding-top: 5px;
+  padding-left: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form .host input.input {
+  height: 40px;
+  margin-left: 0;
+}
+
+form input.btn.btn-default.btn-new-task {
+  margin-top: 15px;
+  font-family: 'Hind', sans-serif;
+  font-size: 18px;
+  text-shadow: none;
+  background-color: #faf283;
+  background-image: none;
+  border: none;
+}
+
+form input.btn.btn-default.btn-new-task:hover {
+  background-color: #67bdee;
+}
+
+form input.btn.btn-default.btn-update-task {
+  margin-top: 30px;
+  font-family: 'Hind', sans-serif;
+  font-size: 18px;
+  text-shadow: none;
+  background-color: #faf283;
+  background-image: none;
+  border: none;
+}
+
+form input.btn.btn-default.btn-update-task:hover {
+  background-color: #67bdee;
+}
+
+form .form-group {
+  margin-right: auto;
+  margin-left: auto;
+}
