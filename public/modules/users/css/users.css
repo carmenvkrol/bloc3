@@ -1,10 +1,12 @@
 h5 {
-  margin-top: 40px;
+  margin-top: 150px;
+  margin-bottom: 30px;
   font-family: 'Permanent Marker', cursive;
   font-size: 30px;
 }
 
 .user-button {
+  margin-top: 20px;
   font-family: 'Permanent Marker', cursive;
   font-size: 18px;
   color: #67bdee;
