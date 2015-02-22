@@ -20,7 +20,7 @@ angular.module('articles').controller('TagsController', ['$http', '$scope', '$st
     };
 
     $scope.getArticles = function() {
-      return $http
+      $http
         .get('/articles')
         .success(function(data){
           $scope.articles = data;
