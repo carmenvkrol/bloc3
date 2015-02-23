@@ -1,9 +1,9 @@
-/*'use strict';
+'use strict';
 
 /**
  * Module dependencies.
  */
-/*var passport = require('passport'),
+var passport = require('passport'),
   User = require('mongoose').model('User'),
   url = require('url'),
   SpotifyStrategy = require('passport-spotify').Strategy,
@@ -26,4 +26,4 @@ var appSecret = 'ea3072d048bf4addb2b4f04763e2dd41';
       });
     }
   ));
-};*/
+};
