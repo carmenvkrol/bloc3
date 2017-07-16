@@ -4,8 +4,7 @@
   "version": "0.0.1",
   "author": "Carmen V. Krol",
   "engines": {
-    "node": "0.10.x",
-    "npm": "1.4.x"
+    "node": "4.8.4"
   },
   "scripts": {
     "start": "grunt",
