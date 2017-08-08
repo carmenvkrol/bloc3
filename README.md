@@ -5,8 +5,6 @@ Single-page app built with [AngularJS](https://angularjs.org/), [Express](http:/
 
 Users can create an account in which they create and edit bookmarks.  The bookmarks can include a link, comments, and tags.  Users can search bookmarks and sort them by tags.  The tags can be edited and deleted.
 
-Here's the [demo] (https://listy-cvk.herokuapp.com/#!/).
-
 
 Configuration
 ------------
@@ -76,7 +74,7 @@ bloc3/
  |  |__modules/ #development mode files
  |  |  |__articles/ #bookmarks and tags
  |  |  |__core/ #home (landing)
- |  |  |__users/ #sign in and sign up 
+ |  |  |__users/ #sign in and sign up
  Gruntfile.js
 
 ```
@@ -85,7 +83,7 @@ Grunt looks for files using a defined pattern so that it knows what to compile a
 
 ```
 var watchFiles = {
-    serverViews: ['app/views/**/*.*'], 
+    serverViews: ['app/views/**/*.*'],
     serverJS: ['gruntfile.js', 'server.js', 'config/**/*.js', 'app/**/*.js'],
     clientViews: ['public/modules/**/views/**/*.html'],
     clientJS: ['public/*.js', 'public/modules/*/*.js', 'public/modules/*/*[!tests]*/*.js'],
@@ -110,7 +108,7 @@ The client-side files for user authentication, which are used in the [/signup] (
 
 Booksmarks and Tags Features
 ------------
-The client-side functionality for bookmarks and tags, which are used in the [/tags](https://github.com/carmenvkrol/bloc3/blob/master/public/modules/articles/views/tags.client.view.html) and [/articles](https://github.com/carmenvkrol/bloc3/blob/master/public/modules/users/views/list-articles.client.view.html) views, can be found in the articles directory within the public directory. The server-side functionality is found in the articles files within the app folder. (See Directory Structure section above to locate these). 
+The client-side functionality for bookmarks and tags, which are used in the [/tags](https://github.com/carmenvkrol/bloc3/blob/master/public/modules/articles/views/tags.client.view.html) and [/articles](https://github.com/carmenvkrol/bloc3/blob/master/public/modules/users/views/list-articles.client.view.html) views, can be found in the articles directory within the public directory. The server-side functionality is found in the articles files within the app folder. (See Directory Structure section above to locate these).
 
 
 
@@ -138,7 +136,7 @@ A list of the plugins used by Grunt and what they're used for:
 
 **[Grunt-Karma](https://github.com/karma-runner/grunt-karma)** - for running Karma, a test runner for JavaScript.
 
-**[Grunt-Mocha-Test](https://github.com/pghalliday/grunt-mocha-test)** - runs server-side mocha tests 
+**[Grunt-Mocha-Test](https://github.com/pghalliday/grunt-mocha-test)** - runs server-side mocha tests
 
 **[Grunt-Ngmin](https://github.com/btford/grunt-ngmin)** - pre-minifies Angular code
 
