@@ -1,3 +1,6 @@
+# ⛔️ DEPRECATED
+This repo is archived and no longer maintained.
+
 listy app
 =============
 
